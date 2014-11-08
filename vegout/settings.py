@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'restaurant',
     'bootstrap3',
     'leaflet',
+    'taggit',
 )
 
 LEAFLET_CONFIG = {

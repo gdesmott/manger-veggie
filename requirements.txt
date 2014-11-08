@@ -6,3 +6,4 @@ django-leaflet
 geopy
 werkzeug
 hamlpy
+django-taggit
