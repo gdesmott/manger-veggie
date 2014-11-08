@@ -6,10 +6,12 @@
   -leaflet_js
   -leaflet_css
 
+  :css
+    .leaflet-container {
+        width:  100%;
+        height: 100vh;
+    }
+
 -block bootstrap3_content
   .container
-    %h1
-      Hello World!
-    %hr
-
-    -leaflet_map "map"
+  -leaflet_map "map"
