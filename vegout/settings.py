@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django_extensions',
     'restaurant',
+    'bootstrap3',
 )
 
 TEMPLATE_LOADERS = (
