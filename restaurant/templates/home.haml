@@ -24,13 +24,18 @@
       $.getJSON("restaurants.json", function(data) {
         for (var i = 0; i < data.length; i ++) {
           var resto = data[i];
-          L.marker([resto.lat, resto.lon]).addTo(map).bindPopup('<center><h4>' + resto.name + '</h4></center><hr>' + resto.address + '<br>' + resto.phone + '<br><a href="' + resto.website + '">' + resto.website + '</a><br><a href="restaurant/' + resto.id + '/">Plus d\'informations</a>');
+          var marker = L.marker([resto.lat, resto.lon]).bindPopup('<center><h4>' + resto.name + '</h4></center><hr>' + resto.address + '<br>' + resto.phone + '<br><a href="' + resto.website + '">' + resto.website + '</a><br><a href="restaurant/' + resto.id + '/">Plus d\'informations</a>');
+          markers_cluster.addLayer(marker);
         }
       })
 
       // Locate user
       var lc = L.control.locate().addTo(map);
       lc.locate();
+
+      // makercluster
+      var markers_cluster = new L.MarkerClusterGroup();
+      map.addLayer(markers_cluster);
     }
 
 -block bootstrap3_content
