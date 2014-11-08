@@ -24,7 +24,7 @@ class Restaurant(models.Model):
 
         restaurant = cls.objects.create(name=name, address=address, website=website,
                 phone=phone, mail=mail, contact=contact, status=status, vg_contact=vg_contact)
-        print "added", name
+        print "added:", name
 
         geolocator = Nominatim()
         location = geolocator.geocode(address)
@@ -33,7 +33,7 @@ class Restaurant(models.Model):
             restaurant.lon = location.longitude
             restaurant.save()
         else:
-            print "Unknown address", address
+            print "Unknown address: %s (%s)" % (address, name)
 
     def __unicode__(self):
         return self.name
