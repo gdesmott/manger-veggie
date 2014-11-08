@@ -45,8 +45,13 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-      -#
-        #navbar.collapse.navbar-collapse
+      #navbar.collapse.navbar-collapse
+        %form.navbar-form.navbar-left{role: "search"}
+          .form-group
+            %input.form-control{type: "text", placeholder: "Restaurant"}
+          %button.btn.btn-default{type: "submit"}
+            Rechercher
+        -#
           %ul.nav.navbar-nav
             %li.active
               %a{href: "#"} Home
