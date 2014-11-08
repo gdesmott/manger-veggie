@@ -4,3 +4,4 @@ django_pdb
 django-extensions
 django-leaflet
 geopy
+werkzeug
