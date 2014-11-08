@@ -30,7 +30,11 @@ class Restaurant(models.Model):
 
         for geo in GEOCODERS:
             geolocator = geo()
-            location = geolocator.geocode(address)
+            try:
+                location = geolocator.geocode(address)
+            except:
+                continue
+
             if location is not None:
                 break
 
