@@ -1,3 +1,8 @@
-from django.shortcuts import render
+import json
+from django.http import HttpResponse
 
-# Create your views here.
+from .models import Restaurant
+
+
+def restaurants_json(request):
+    return HttpResponse(json.dumps(list(Restaurant.objects.all().values("lat", "lon"))))

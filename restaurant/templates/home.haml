@@ -12,6 +12,15 @@
         height: 100vh;
     }
 
+  :javascript
+    function map_init (map, options) {
+      $.getJSON("restaurants.json", function(data) {
+        for (var i = 0; i < data.length; i ++) {
+          L.marker([data[i]["lat"], data[i]["lon"]]).addTo(map);
+        }
+      })
+    }
+
 -block bootstrap3_content
   .container
-  -leaflet_map "map"
+  -leaflet_map "map" callback="window.map_init"
