@@ -1,17 +1,28 @@
 -extends "bootstrap3/bootstrap3.html"
 
+-load leaflet_tags
+
 -block bootstrap3_title
   Veg'Out - {{ restaurant.name }}
 
 -block bootstrap3_content
-  .container
-    %h1= restaurant.name
-    %hr
+  -leaflet_js
+  -leaflet_css
 
-    %h3 Details
-    %ul
-      %li Address: {{ restaurant.address }}
-      %li Téléphone: {{ restaurant.phone }}
-      %li Site web:
-        %a{href: "{{ restaurant.website }}"}
-          =restaurant.website
+  .container
+    .row
+      %h1= restaurant.name
+      %hr
+
+      .col-md-6
+        %h3 Details
+        %ul
+          %li Address: {{ restaurant.address }}
+          %li Téléphone: {{ restaurant.phone }}
+          %li Site web:
+            %a{href: "{{ restaurant.website }}"}
+              =restaurant.website
+
+      .col-md-6
+        %div{style: "border: 1px solid black"}
+          -leaflet_map "map" callback="window.map_init"
