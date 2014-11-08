@@ -3,6 +3,7 @@
 -load leaflet_tags
 
 -block bootstrap3_extra_head
+  %link{href: "/static/css/styles.css", rel: "stylesheet"}
   -leaflet_js
   -leaflet_css
 
@@ -35,24 +36,24 @@
     }
 
 -block bootstrap3_content
-  %nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
+  .navbar.navbar-fixed-top.navbar-bold{data-spy: "affix", data-offset-top: "1000"}
     .container
       .navbar-header
-        %button.navbar-toggle.collapsed{type: "button", data-toggle: "collapse", data-target: "#navbar", aria-expanded: "false", aria-controls: "navbar"}
-          %span.sr-only Toggle navigation
+        %a.navbar-brand{href: "#"}
+          Veg'Out
+        %a.navbar-toggle{data-toggle: "collapse", data-target: ".navbar-collapse"}
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a{class: "navbar-brand", href: "#"}
-          Veg'out
-      #navbar.collapse.navbar-collapse
-        %ul.nav.navbar-nav
-          %li.active
-            %a{href: "#"} Home
-          %li
-            %a{href: "#about"} About
-          %li
-            %a{href: "#contact"} Contact
+      -#
+        #navbar.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.active
+              %a{href: "#"} Home
+            %li
+              %a{href: "#about"} About
+            %li
+              %a{href: "#contact"} Contact
 
   .container
   -leaflet_map "map" callback="window.map_init"
