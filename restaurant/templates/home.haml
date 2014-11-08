@@ -18,10 +18,6 @@
     }
 
   :javascript
-    function center_location (position) {
-      resto_map.setView([position.coords.latitude, position.coords.longitude], 16);
-    }
-
     function map_init (map, options) {
       resto_map = map
 
@@ -32,7 +28,9 @@
         }
       })
 
-      navigator.geolocation.getCurrentPosition(center_location);
+      // Locate user
+      var lc = L.control.locate().addTo(map);
+      lc.locate();
     }
 
 -block bootstrap3_content

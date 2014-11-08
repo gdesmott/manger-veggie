@@ -45,6 +45,14 @@ INSTALLED_APPS = (
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (50.6407351, 4.66696),
     'DEFAULT_ZOOM': 8,
+
+    'PLUGINS': {
+        'name-of-plugin': {
+            'css': ['css/L.Control.Locate.css'],
+            'js': 'js/L.Control.Locate.js',
+            'auto-include': True,
+        },
+    },
 }
 
 
