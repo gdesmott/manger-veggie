@@ -23,7 +23,7 @@
       $.getJSON("restaurants.json", function(data) {
         for (var i = 0; i < data.length; i ++) {
           var resto = data[i];
-          L.marker([resto.lat, resto.lon]).addTo(map).bindPopup(resto.name);
+          L.marker([resto.lat, resto.lon]).addTo(map).bindPopup('<center><h4>' + resto.name + '</h4></center><hr>' + resto.address + '<br>' + resto.phone + '<br><a href="' + resto.website + '">' + resto.website + '</a>');
         }
       })
 
