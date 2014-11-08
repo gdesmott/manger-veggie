@@ -5,4 +5,4 @@ from .models import Restaurant
 
 
 def restaurants_json(request):
-    return HttpResponse(json.dumps(list(Restaurant.objects.all().values("lat", "lon", "name", "address", "website", "phone"))))
+    return HttpResponse(json.dumps(list(Restaurant.objects.all().values("lat", "lon", "name", "address", "website", "phone", "id"))))
