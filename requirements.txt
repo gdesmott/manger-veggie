@@ -5,3 +5,4 @@ django-extensions
 django-leaflet
 geopy
 werkzeug
+hamlpy
