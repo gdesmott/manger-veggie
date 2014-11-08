@@ -45,29 +45,7 @@
     }
 
 -block bootstrap3_content
-  .navbar.navbar-fixed-top.navbar-bold{data-spy: "affix", data-offset-top: "1000"}
-    .container
-      .navbar-header
-        %a.navbar-brand{href: "#"}
-          Veg'Out
-        %a.navbar-toggle{data-toggle: "collapse", data-target: ".navbar-collapse"}
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-      #navbar.collapse.navbar-collapse
-        %form.navbar-form.navbar-left{role: "search"}
-          .form-group
-            %input.form-control{type: "text", placeholder: "Restaurant"}
-          %button.btn.btn-default{type: "submit"}
-            Rechercher
-        -#
-          %ul.nav.navbar-nav
-            %li.active
-              %a{href: "#"} Home
-            %li
-              %a{href: "#about"} About
-            %li
-              %a{href: "#contact"} Contact
+  -include "navbar.haml"
 
   .container
   -leaflet_map "map" callback="window.map_init"

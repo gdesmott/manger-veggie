@@ -6,8 +6,14 @@
   Veg'Out - {{ restaurant.name }}
 
 -block bootstrap3_content
+  %link{href: "/static/css/styles.css", rel: "stylesheet"}
   -leaflet_js
   -leaflet_css
+
+  :css
+    body {
+        padding-top: 51px; /*for navbar*/
+    }
 
   :javascript
     function map_init (map, options) {
@@ -20,6 +26,7 @@
     }
 
   .container
+    -include "navbar.haml"
     .row
       %h1= restaurant.name
       %hr
