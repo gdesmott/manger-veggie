@@ -30,3 +30,8 @@ class Command(BaseCommand):
         Restaurant.objects.all().delete()
 
         self.create_restaurant("Exki", "12, Chaussée D'Ixelles, 1050 Ixelles", 'www.exki.be', '02/502.72.77', status='2ème vague')
+        self.create_restaurant("Ellis Gourmet Burger", "Place Sainte-Catherine, 4 - 1000 Bruxelles", "http://www.ellisgourmetburger.com/nl/", "02/514.23.14", status="OK (autocollant)", vg_contact="Lisa & Sophie - 28/06")
+        self.create_restaurant("Den Teepot", "66, Rue des Chartreux 1000 Bruxelles", "http://www.bioshop.be/winkels/brussel.html", "02/511.94.02", status="OK (autocollant)", vg_contact="Lisa & Sophie - 28/06")
+        self.create_restaurant("Toukoul", "34, Rue de Laeken 1000 Bruxelles ", "http://www.toukoul.be", "02/223.73.77", "info@toukoul.be", status="repasser à 13h", vg_contact="Lisa & Sophie - 28/06")
+        self.create_restaurant("Mr Falafel", "53, Boulevard Lemonnier - 1000 Bruxelles", None, "0493/34.64.12", None, status="OK (autocollant)", vg_contact="Lisa & Sophie - 28/06")
+        self.create_restaurant("Le Dolma", "329, Chaussée d'Ixelles - 1050 Ixelles", "www.dolma.be", "02/649.89.81", "info@dolma.be", status="OK (autocollant)", vg_contact="Lisa & Sophie H & Isabelle - 05/07")
