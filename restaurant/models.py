@@ -1,5 +1,7 @@
 from django.db import models
 
+from taggit.managers import TaggableManager
+
 from geopy.geocoders import ArcGIS, OpenMapQuest, GoogleV3, Nominatim, GeocoderDotUS
 
 GEOCODERS = [Nominatim, GoogleV3, ArcGIS, OpenMapQuest, GeocoderDotUS]
@@ -13,6 +15,8 @@ class Restaurant(models.Model):
 
     lat = models.FloatField(null=True)
     lon = models.FloatField(null=True)
+
+    tags = TaggableManager()
 
     # admin
     contact = models.CharField(max_length=255, null=True, blank=True)
