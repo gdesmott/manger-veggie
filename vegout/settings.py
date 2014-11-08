@@ -45,6 +45,7 @@ INSTALLED_APPS = (
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (50.6407351, 4.66696),
     'DEFAULT_ZOOM': 8,
+    'MIN_ZOOM': 2,
 
     'PLUGINS': {
         'locate': {
