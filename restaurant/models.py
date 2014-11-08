@@ -1,6 +1,8 @@
 from django.db import models
 
-from geopy.geocoders import Nominatim
+from geopy.geocoders import ArcGIS, OpenMapQuest, GoogleV3, Nominatim, GeocoderDotUS
+
+GEOCODERS = [Nominatim, GoogleV3, ArcGIS, OpenMapQuest, GeocoderDotUS]
 
 class Restaurant(models.Model):
     name = models.CharField(max_length=255)
@@ -26,8 +28,12 @@ class Restaurant(models.Model):
                 phone=phone, mail=mail, contact=contact, status=status, vg_contact=vg_contact)
         print "added:", name
 
-        geolocator = Nominatim()
-        location = geolocator.geocode(address)
+        for geo in GEOCODERS:
+            geolocator = geo()
+            location = geolocator.geocode(address)
+            if location is not None:
+                break
+
         if location is not None:
             restaurant.lat = location.latitude
             restaurant.lon = location.longitude
