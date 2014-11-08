@@ -15,6 +15,7 @@ class Command(BaseCommand):
 
         restaurant = Restaurant.objects.create(name=name, address=address, website=website,
                 phone=phone, mail=mail, contact=contact, status=status, vg_contact=vg_contact)
+        print "added", name
 
         geolocator = Nominatim()
         location = geolocator.geocode(address)
