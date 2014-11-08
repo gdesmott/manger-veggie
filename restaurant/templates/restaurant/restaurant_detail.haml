@@ -9,6 +9,12 @@
   -leaflet_js
   -leaflet_css
 
+  :javascript
+    function map_init (map, options) {
+      L.marker([{{ restaurant.lat }}, {{ restaurant.lon }}]).addTo(map);
+      map.setView([{{ restaurant.lat }}, {{ restaurant.lon }}], 14);
+    }
+
   .container
     .row
       %h1= restaurant.name
