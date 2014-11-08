@@ -10,7 +10,7 @@ class Command(BaseCommand):
     )
 
     def create_restaurant(self, name, address, website=None, phone=None, mail=None, contact=None, status=None, vg_contact=None):
-        if not website.startswith('http'):
+        if website is not None and not website.startswith('http'):
             website = 'http://%s' % website
 
         restaurant = Restaurant.objects.create(name=name, address=address, website=website,
