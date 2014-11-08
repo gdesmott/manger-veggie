@@ -42,6 +42,12 @@ INSTALLED_APPS = (
     'leaflet',
 )
 
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (50.6407351, 4.66696),
+    'DEFAULT_ZOOM': 8,
+}
+
+
 TEMPLATE_LOADERS = (
     'hamlpy.template.loaders.HamlPyFilesystemLoader',
     'hamlpy.template.loaders.HamlPyAppDirectoriesLoader',
