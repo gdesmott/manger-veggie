@@ -53,6 +53,11 @@ LEAFLET_CONFIG = {
             'js': 'js/L.Control.Locate.js',
             'auto-include': True,
         },
+        'awesome_markers': {
+            'css': ['css/leaflet.awesome-markers.css'],
+            'js': 'js/leaflet.awesome-markers.min.js',
+            'auto-include': True,
+        },
         'makercluster': {
             'css': ['css/MarkerCluster.Default.css', 'css/MarkerCluster.css'],
             'js': 'js/leaflet.markercluster.js',
