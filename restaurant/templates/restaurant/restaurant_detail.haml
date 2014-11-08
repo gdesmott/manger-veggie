@@ -1,0 +1,14 @@
+-extends "bootstrap3/bootstrap3.html"
+
+-block bootstrap3_content
+  .container
+    %h1= restaurant.name
+    %hr
+
+    %h3 Details
+    %ul
+      %li Address: {{ restaurant.address }}
+      %li Téléphone: {{ restaurant.phone }}
+      %li Site web:
+        %a{href: "{{ restaurant.website }}"}
+          =restaurant.website
