@@ -22,8 +22,6 @@
 
   :javascript
     function map_init (map, options) {
-      resto_map = map
-
       $.getJSON("restaurants.json", function(data) {
         for (var i = 0; i < data.length; i ++) {
           var resto = data[i];
