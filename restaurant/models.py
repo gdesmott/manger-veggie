@@ -7,8 +7,8 @@ class Restaurant(models.Model):
     phone = models.CharField(max_length=255, null=True, blank=True)
     mail = models.EmailField(null=True, blank=True)
 
-    lon = models.FloatField(null=True)
     lat = models.FloatField(null=True)
+    lon = models.FloatField(null=True)
 
     # admin
     contact = models.CharField(max_length=255, null=True, blank=True)
