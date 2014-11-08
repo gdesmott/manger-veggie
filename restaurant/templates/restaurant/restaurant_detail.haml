@@ -11,7 +11,11 @@
 
   :javascript
     function map_init (map, options) {
-      L.marker([{{ restaurant.lat }}, {{ restaurant.lon }}]).addTo(map);
+      var icon = L.AwesomeMarkers.icon({
+        icon: 'cutlery',
+        markerColor: 'green',
+      })
+      L.marker([{{ restaurant.lat }}, {{ restaurant.lon }}], {icon: icon}).addTo(map);
       map.setView([{{ restaurant.lat }}, {{ restaurant.lon }}], 14);
     }
 
