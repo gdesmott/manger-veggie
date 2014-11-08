@@ -1,7 +1,15 @@
 -extends "bootstrap3/bootstrap3.html"
 
+-load leaflet_tags
+
+-block bootstrap3_extra_head
+  -leaflet_js
+  -leaflet_css
+
 -block bootstrap3_content
   .container
     %h1
       Hello World!
     %hr
+
+    -leaflet_map "map"

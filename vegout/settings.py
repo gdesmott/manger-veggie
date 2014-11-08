@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'restaurant',
     'bootstrap3',
+    'leaflet',
 )
 
 TEMPLATE_LOADERS = (
