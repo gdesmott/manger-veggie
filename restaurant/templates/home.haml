@@ -40,7 +40,7 @@
       lc.locate();
 
       // makercluster
-      var markers_cluster = new L.MarkerClusterGroup();
+      var markers_cluster = new L.MarkerClusterGroup({ disableClusteringAtZoom: 17 });
       map.addLayer(markers_cluster);
     }
 
