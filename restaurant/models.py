@@ -49,6 +49,8 @@ class Restaurant(models.Model):
         else:
             print "Unknown address: %s (%s)" % (address, name)
 
+        return restaurant
+
     def __unicode__(self):
         return self.name
 
