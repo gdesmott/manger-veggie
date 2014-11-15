@@ -7,3 +7,4 @@ geopy
 werkzeug
 hamlpy
 django-taggit
+django-jstemplate

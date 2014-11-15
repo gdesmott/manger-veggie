@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'bootstrap3',
     'leaflet',
     'taggit',
+    'jstemplate',
 )
 
 LEAFLET_CONFIG = {
@@ -118,6 +119,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+JSTEMPLATE_DIRS = [ os.path.join(BASE_DIR, 'restaurant', 'templates') ]
 
 try:
     from settings_local import *

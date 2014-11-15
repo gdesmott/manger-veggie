@@ -1,6 +1,7 @@
 -extends "bootstrap3/bootstrap3.html"
 
 -load leaflet_tags
+-load jstemplate
 
 -block bootstrap3_title
   Resto Veggie
@@ -9,6 +10,7 @@
   %link{href: "/static/css/styles.css", rel: "stylesheet"}
   -leaflet_js
   -leaflet_css
+  %script{src:"{{ STATIC_URL }}js/mustache.js"}
 
   :css
     .leaflet-container {
@@ -30,7 +32,7 @@
       $.getJSON("restaurants.json", function(data) {
         for (var i = 0; i < data.length; i ++) {
           var resto = data[i];
-          var marker = L.marker([resto.lat, resto.lon], {icon: icon}).bindPopup('<center><h4>' + resto.name + '</h4></center><hr>' + resto.address + '<br>' + resto.phone + '<br><a href="' + resto.website + '">' + resto.website + '</a><br><a href="restaurant/' + resto.id + '/">Plus d\'informations</a>');
+          var marker = L.marker([resto.lat, resto.lon], {icon: icon}).bindPopup(Mustache.to_html(Mustache.TEMPLATES.restopopup, {resto: resto}));
           markers_cluster.addLayer(marker);
         }
       })
@@ -46,6 +48,7 @@
 
 -block bootstrap3_content
   -include "navbar.haml"
+  -mustachejs "restopopup"
 
   .container
   -leaflet_map "map" callback="window.map_init"
