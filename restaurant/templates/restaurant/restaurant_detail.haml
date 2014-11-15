@@ -35,10 +35,12 @@
         %h3 Details
         %ul
           %li Address: {{ restaurant.address }}
-          %li Téléphone: {{ restaurant.phone }}
-          %li Site web:
-            %a{href: "{{ restaurant.website }}"}
-              =restaurant.website
+          -if restaurant.phone
+            %li Téléphone: {{ restaurant.phone }}
+          -if restaurant.website
+            %li Site web:
+              %a{href: "{{ restaurant.website }}"}
+                =restaurant.website
 
       .col-md-6
         %div{style: "border: 1px solid black"}
