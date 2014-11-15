@@ -8,6 +8,28 @@ from restaurant.models import Restaurant
 
 MIN_FIELD_LEN = 3
 
+VG_TAGS = {
+        'Sans gluten': 'gluten-free',
+        'Végé': 'vegetarian',
+        'Vegan': 'vegan',
+        'Vegan-friendly': 'vegan-friendly'
+        }
+
+def parse_vg_tags(tags):
+    result = set()
+
+    for t in map(str.strip, tags.split('/')):
+        # All restaurants are supposed to be at least vg friendly
+        if t == 'Végé-friendly':
+            continue
+
+        try:
+            result.add(VG_TAGS[t])
+        except KeyError:
+            print "WARNING: Unknown tag %s" % t
+
+    return result
+
 class Command(BaseCommand):
     args = '<csv-file>'
 
@@ -37,4 +59,9 @@ class Command(BaseCommand):
                 if row['Suivi'] is None or 'OK' not in row['Suivi']:
                     continue
 
-                Restaurant.create(row['Nom'], row['Adresse'], row['Site'], row['Téléphone'], row['Mail'], row['Personne de contact'], row['Suivi'], row['Personne responsable'])
+                resto = Restaurant.create(row['Nom'], row['Adresse'], row['Site'], row['Téléphone'], row['Mail'], row['Personne de contact'], row['Suivi'], row['Personne responsable'])
+
+                if row['Vg']:
+                    tags = parse_vg_tags(row['Vg'])
+                    resto.tags.add(' '.join(tags))
+                    resto.save()
