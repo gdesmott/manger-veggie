@@ -19,6 +19,7 @@ class Restaurant(models.Model):
     tags = TaggableManager()
 
     # admin
+    checked = models.BooleanField(default=False)
     contact = models.CharField(max_length=255, null=True, blank=True)
     status = models.CharField(max_length=255, null=True, blank=True)
     vg_contact = models.CharField(max_length=255, null=True, blank=True)
@@ -49,7 +50,18 @@ class Restaurant(models.Model):
         else:
             print "Unknown address: %s (%s)" % (address, name)
 
+        restaurant.update_checked()
         return restaurant
+
+    def should_be_checked(self):
+        if self.status is None or 'OK' not in self.status:
+            return False
+
+        return True
+
+    def update_checked(self):
+        self.checked = self.should_be_checked()
+        self.save()
 
     def __unicode__(self):
         return self.name

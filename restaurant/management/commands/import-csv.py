@@ -56,9 +56,6 @@ class Command(BaseCommand):
                 if not row['Nom'] or not row['Adresse']:
                     continue
 
-                if row['Suivi'] is None or 'OK' not in row['Suivi']:
-                    continue
-
                 resto = Restaurant.create(row['Nom'], row['Adresse'], row['Site'], row['Téléphone'], row['Mail'], row['Personne de contact'], row['Suivi'], row['Personne responsable'])
 
                 if row['Vg']:
