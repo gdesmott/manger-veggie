@@ -41,6 +41,9 @@
             %li Site web:
               %a{href: "{{ restaurant.website }}"}
                 =restaurant.website
+          %li
+            %a{href: "https://maps.google.com/maps?saddr=&daddr={{ restaurant.lat }},{{ restaurant.lon }}" }
+                ="Itinéraire (via Google Maps)"
 
       .col-md-6
         %div{style: "border: 1px solid black"}
