@@ -8,3 +8,4 @@ werkzeug
 hamlpy
 django-taggit
 django-jstemplate
+phonenumbers

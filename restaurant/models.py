@@ -2,6 +2,7 @@ from django.db import models
 
 from taggit.managers import TaggableManager
 
+import phonenumbers
 from geopy.geocoders import ArcGIS, OpenMapQuest, GoogleV3, Nominatim, GeocoderDotUS
 
 GEOCODERS = [Nominatim, GoogleV3, ArcGIS, OpenMapQuest, GeocoderDotUS]
@@ -62,6 +63,16 @@ class Restaurant(models.Model):
     def update_checked(self):
         self.checked = self.should_be_checked()
         self.save()
+
+    def get_national_phone_number(self):
+        # FIXME: don't assume the restaurant is in Belgium
+        x = phonenumbers.parse(self.phone, "BE")
+        return phonenumbers.format_number(x, phonenumbers.PhoneNumberFormat.NATIONAL)
+
+    def get_international_phone_number(self):
+        # FIXME: don't assume the restaurant is in Belgium
+        x = phonenumbers.parse(self.phone, "BE")
+        return phonenumbers.format_number(x, phonenumbers.PhoneNumberFormat.E164)
 
     def __unicode__(self):
         return self.name
