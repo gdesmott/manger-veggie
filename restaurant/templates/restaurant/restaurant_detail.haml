@@ -36,7 +36,9 @@
         %ul
           %li Address: {{ restaurant.address }}
           -if restaurant.phone
-            %li Téléphone: {{ restaurant.phone }}
+            %li Téléphone:
+              %a{href: "tel:{{ restaurant.get_international_phone_number }}"}
+                =restaurant.get_national_phone_number
           -if restaurant.website
             %li Site web:
               %a{href: "{{ restaurant.website }}"}
