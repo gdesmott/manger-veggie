@@ -80,6 +80,9 @@ class Restaurant(models.Model):
         x = phonenumbers.parse(self.phone, "BE")
         return phonenumbers.format_number(x, phonenumbers.PhoneNumberFormat.E164)
 
+    def tags_for_js(self):
+        return [x.name.encode("Utf-8") for x in self.tags.all()]
+
     def __unicode__(self):
         return self.name
 

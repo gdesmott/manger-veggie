@@ -7,6 +7,7 @@
 
 -block bootstrap3_content
   %link{href: "/static/css/styles.css", rel: "stylesheet"}
+  %script{src:"{{ STATIC_URL }}js/utils.js"}
   -leaflet_js
   -leaflet_css
 
@@ -19,7 +20,7 @@
     function map_init (map, options) {
       var icon = L.AwesomeMarkers.icon({
         icon: 'cutlery',
-        markerColor: 'green',
+        markerColor: tags_to_color({{ restaurant.tags_for_js|safe }}),
       })
       L.marker([{{ restaurant.lat }}, {{ restaurant.lon }}], {icon: icon}).addTo(map);
       map.setView([{{ restaurant.lat }}, {{ restaurant.lon }}], 14);
