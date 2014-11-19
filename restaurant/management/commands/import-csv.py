@@ -18,7 +18,7 @@ VG_TAGS = {
 def parse_vg_tags(tags):
     result = set()
 
-    for t in map(str.strip, tags.split('/')):
+    for t in filter(None, map(str.strip, tags.split('/'))):
         # All restaurants are supposed to be at least vg friendly
         if t == 'Végé-friendly':
             continue
