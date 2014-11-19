@@ -13,4 +13,6 @@ def restaurants_json(request):
         "website": x.website,
         "phone": x.phone,
         "id": x.id,
+        "national_phone_number": x.get_national_phone_number(),
+        "international_phone_number": x.get_international_phone_number(),
     } for x in Restaurant.objects.filter(lat__isnull=False, lon__isnull=False, checked__exact=True)]))
