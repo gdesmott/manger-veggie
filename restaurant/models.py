@@ -65,11 +65,17 @@ class Restaurant(models.Model):
         self.save()
 
     def get_national_phone_number(self):
+        if self.phone is None:
+            return None
+
         # FIXME: don't assume the restaurant is in Belgium
         x = phonenumbers.parse(self.phone, "BE")
         return phonenumbers.format_number(x, phonenumbers.PhoneNumberFormat.NATIONAL)
 
     def get_international_phone_number(self):
+        if self.phone is None:
+            return None
+
         # FIXME: don't assume the restaurant is in Belgium
         x = phonenumbers.parse(self.phone, "BE")
         return phonenumbers.format_number(x, phonenumbers.PhoneNumberFormat.E164)
