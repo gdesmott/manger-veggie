@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'django_pdb',
     'restaurant',
     'bootstrap3',
     'leaflet',
