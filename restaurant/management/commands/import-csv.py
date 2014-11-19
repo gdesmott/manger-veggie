@@ -60,5 +60,6 @@ class Command(BaseCommand):
 
                 if row['Vg']:
                     tags = parse_vg_tags(row['Vg'])
-                    resto.tags.add(' '.join(tags))
-                    resto.save()
+                    if tags:
+                        resto.tags.add(*tags)
+                        resto.save()
