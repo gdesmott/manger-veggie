@@ -23,14 +23,26 @@
     }
 
   :javascript
-    function map_init (map, options) {
-      var icon = L.AwesomeMarkers.icon({
-        icon: 'cutlery',
-        markerColor: 'green',
-      })
+    function tags_to_color(tags) {
+      if (tags.indexOf('vegan') >= 0) {
+        return 'darkgreen'
+      } else if (tags.indexOf('vegetarian') >= 0) {
+        return 'green'
+      } else if (tags.indexOf('vegan-friendly') >= 0) {
+        return 'orange'
+      } else {
+        return 'blue'
+      }
+    }
 
+    function map_init (map, options) {
       $.getJSON("restaurants.json", function(data) {
         for (var i = 0; i < data.length; i ++) {
+          var icon = L.AwesomeMarkers.icon({
+            icon: 'cutlery',
+            markerColor: tags_to_color(data[i]["tags"]),
+          })
+
           var resto = data[i];
           var marker = L.marker([resto.lat, resto.lon], {icon: icon}).bindPopup(Mustache.to_html(Mustache.TEMPLATES.restopopup, {resto: resto}));
           markers_cluster.addLayer(marker);
