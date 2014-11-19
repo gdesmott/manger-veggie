@@ -15,4 +15,7 @@ def restaurants_json(request):
         "id": x.id,
         "national_phone_number": x.get_national_phone_number(),
         "international_phone_number": x.get_international_phone_number(),
-    } for x in Restaurant.objects.filter(lat__isnull=False, lon__isnull=False, checked__exact=True)]))
+        "tags": [tag["name"] for tag in x.tags.all().values("name")],
+    } for x in Restaurant.objects.filter(lat__isnull=False, lon__isnull=False, checked__exact=True)], indent=4))
+
+    # optimisation note: .prefetch_related("tags") makes request slower here
