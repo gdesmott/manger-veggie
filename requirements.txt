@@ -2,7 +2,7 @@ django
 django-bootstrap3
 django_pdb
 django-extensions
-django-leaflet
+django-leaflet==0.15.0
 geopy
 werkzeug
 hamlpy
