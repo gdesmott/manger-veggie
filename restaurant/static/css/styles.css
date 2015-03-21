@@ -173,4 +173,9 @@ footer {
   padding: 100px 0;
 }
 
+.awesome-marker {
+  display: inline-block;
+  position: relative;
+}
+
 /* -- end custom css for Bootstrap 3.x --*/
