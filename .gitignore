@@ -2,3 +2,7 @@ ve/
 db.sqlite3
 *.pyc
 *.swp
+
+#intellij files
+.idea
+*.iml
