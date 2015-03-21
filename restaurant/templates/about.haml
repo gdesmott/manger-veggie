@@ -1,0 +1,36 @@
+-extends "bootstrap3/bootstrap3.html"
+
+-load leaflet_tags
+
+-block bootstrap3_title
+  Resto Veggie
+
+-block bootstrap3_content
+  %link{href: "/static/css/styles.css", rel: "stylesheet"}
+  %script{src:"{{ STATIC_URL }}js/utils.js"}
+
+  :css
+    body {
+        padding-top: 51px; /*for navbar*/
+    }
+
+  .container
+    -include "navbar.haml"
+    .row
+      %h1 Resto Veggie
+      %p
+        Trouver facilement où manger des plats végétariens et végétaliens de qualité grace à Resto Veggie.
+      %p
+        Resto Veggie est une application mobile permettant de facilement trouver les établissements proposant des plats végétariens/végétaliens en Belgique.
+        Les restaurants sont sélectionnés et testés par notre équipe de bénévoles afin de vous offrir un large choix d'adresses de qualité.
+      %h2 Végétik
+      %p
+        Resto Veggie est un projet de l'association
+        %a{href: "http://vegetik.org/"} Végétik
+        en partenariat avec
+        %a{href: "http://vegoresto.fr/"} VegOresto
+        de l'association
+        %a{href: "http://www.l214.com/"} L214
+        .
+        %center
+          %img{src:"{{ STATIC_URL }}img/vegetik.png"}
