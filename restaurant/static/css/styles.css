@@ -178,4 +178,8 @@ footer {
   position: relative;
 }
 
+.dropdown-menu > li > a.legend {
+  padding-left: 15px;
+}
+
 /* -- end custom css for Bootstrap 3.x --*/
