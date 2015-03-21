@@ -2,6 +2,8 @@ ve/
 db.sqlite3
 *.pyc
 *.swp
+#input data
+vegout.csv
 
 #intellij files
 .idea

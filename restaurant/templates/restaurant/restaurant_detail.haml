@@ -35,7 +35,7 @@
       .col-md-6
         %h3 Details
         %ul
-          %li Address: {{ restaurant.address }}
+          %li Address: {{ restaurant.address|safe }}
           -if restaurant.phone
             %li Téléphone:
               %a{href: "tel:{{ restaurant.get_international_phone_number }}"}

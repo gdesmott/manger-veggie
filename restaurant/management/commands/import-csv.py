@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from django.core.management.base import BaseCommand
-#from optparse import make_option
 
 import csv
 
@@ -14,6 +13,7 @@ VG_TAGS = {
         'Vegan': 'vegan',
         'Vegan-friendly': 'vegan-friendly'
         }
+
 
 def parse_vg_tags(tags):
     result = set()
@@ -29,6 +29,7 @@ def parse_vg_tags(tags):
             print "WARNING: Unknown tag %s" % t
 
     return result
+
 
 class Command(BaseCommand):
     args = '<csv-file>'

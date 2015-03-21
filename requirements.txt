@@ -9,3 +9,5 @@ hamlpy
 django-taggit
 django-jstemplate
 phonenumbers
+beautifulsoup
+python-dateutil
