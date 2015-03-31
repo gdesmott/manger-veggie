@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
             }
         });
         webView.setWebViewClient(new CustomWebViewClient());
-        webView.loadUrl("http://vegout.desmottes.be/");
+        webView.loadUrl("http://manger-veggie.be");
     }
 
     private class CustomWebViewClient extends WebViewClient {
@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
         {
             //do whatever you want with the url that is clicked inside the webview.
             //for example tell the webview to load that url.
-            boolean shouldHandle = url.contains("vegout");
+            boolean shouldHandle = url.contains("manger-veggie.be");
             if(shouldHandle)
                 view.loadUrl(url);
             //return true if this method handled the link event
