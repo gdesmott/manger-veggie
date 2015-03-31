@@ -46,11 +46,11 @@ class Restaurant(models.Model):
     vg_contact = models.CharField(max_length=255, null=True, blank=True)
 
     @classmethod
-    def create(cls, name, address, website=None, phone=None, mail=None, contact=None, status=None, vg_contact=None):
+    def create(cls, vegoresto_id, name, address, website=None, phone=None, mail=None, contact=None, status=None, vg_contact=None):
         if website is not None and not website.startswith('http'):
             website = 'http://%s' % website
 
-        restaurant = cls.objects.create(name=name, address=address, website=website,
+        restaurant = cls.objects.create(vegoresto_id=vegoresto_id, name=name, address=address, website=website,
                 phone=phone, mail=mail, contact=contact, status=status, vg_contact=vg_contact)
         print "added:", name
 

@@ -2,6 +2,7 @@
 from django.core.management.base import BaseCommand
 
 import csv
+import random
 
 from restaurant.models import Restaurant
 
@@ -57,7 +58,7 @@ class Command(BaseCommand):
                 if not row['Nom'] or not row['Adresse']:
                     continue
 
-                resto = Restaurant.create(row['Nom'], row['Adresse'], row['Site'], row['Téléphone'], row['Mail'], row['Personne de contact'], row['Suivi'], row['Personne responsable'])
+                resto = Restaurant.create(random.randint(1, 2**32), row['Nom'], row['Adresse'], row['Site'], row['Téléphone'], row['Mail'], row['Personne de contact'], row['Suivi'], row['Personne responsable'])
 
                 if row['Vg']:
                     tags = parse_vg_tags(row['Vg'])
