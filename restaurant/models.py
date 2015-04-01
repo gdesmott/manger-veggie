@@ -21,6 +21,7 @@ class Restaurant(models.Model):
     address = models.CharField(max_length=255)
     website = models.URLField(null=True, blank=True)
     phone = models.CharField(max_length=255, null=True, blank=True)
+    country_code = models.CharField(max_length=2, null=True, blank=True)
     mail = models.EmailField(null=True, blank=True)
     main_image = models.URLField(null=True)
 
@@ -34,7 +35,7 @@ class Restaurant(models.Model):
     vg_contact = models.CharField(max_length=255, null=True, blank=True)
 
     @classmethod
-    def create(cls, vegoresto_id, name, address, website=None, phone=None, mail=None, contact=None, status=None, vg_contact=None):
+    def create(cls, vegoresto_id, name, address, website=None, phone=None, mail=None, contact=None, vg_contact=None):
         if website is not None and not website.startswith('http'):
             website = 'http://%s' % website
 
@@ -65,16 +66,14 @@ class Restaurant(models.Model):
         if self.phone is None:
             return None
 
-        # FIXME: don't assume the restaurant is in Belgium
-        x = phonenumbers.parse(self.phone, "BE")
+        x = phonenumbers.parse(self.phone, self.country_code)
         return phonenumbers.format_number(x, phonenumbers.PhoneNumberFormat.NATIONAL)
 
     def get_international_phone_number(self):
         if self.phone is None:
             return None
 
-        # FIXME: don't assume the restaurant is in Belgium
-        x = phonenumbers.parse(self.phone, "BE")
+        x = phonenumbers.parse(self.phone, self.country_code)
         return phonenumbers.format_number(x, phonenumbers.PhoneNumberFormat.E164)
 
     def tags_for_js(self):
