@@ -44,17 +44,12 @@ class Command(BaseCommand):
             if resto_set.exists():
                 resto = resto_set[0]
             else:
-                resto = Restaurant(vegoresto_id=vegoresto_id)
+                resto = Restaurant.create(vegoresto_id=vegoresto_id,
+                                          name=resto_data.titre.text,
+                                          address=resto_data.adresse.text)
 
-            tags = parse_vg_tags(resto_data.categories_culinaires.text)
-            if tags:
-                resto.tags.add(*tags)
-
-            resto.status = resto_data.vegetik_status.text
             resto.review = resto_data.vegetik_review.text
             resto.approved_date = parse(resto_data.vegetik_approved_date.text)
-            resto.name = resto_data.titre.text
-            resto.address = resto_data.adresse.text
             resto.lat = float(resto_data.lat.text)
             resto.lon = float(resto_data.lon.text)
             resto.website = resto_data.link.text
@@ -63,5 +58,9 @@ class Command(BaseCommand):
             resto.mail = resto_data.mel_public.text
             resto.main_image = resto_data.image.text
             resto.checked = True
+
+            tags = parse_vg_tags(resto_data.categories_culinaires.text)
+            if tags:
+                resto.tags.add(*tags)
 
             resto.save()
