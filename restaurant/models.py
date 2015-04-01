@@ -29,20 +29,8 @@ class Restaurant(models.Model):
 
     tags = TaggableManager()
 
-    TODO = 'TODO'
-    APPROVED = 'APPROVED'
-    REJECTED = 'REJECTED'
-    STATUS_CHOICES = (
-        (TODO, 'TODO'),
-        (APPROVED, 'Approved'),
-        (REJECTED, 'Rejected'),
-    )
-    status = models.CharField(max_length=255, choices=STATUS_CHOICES, default=TODO)
-
     # admin
-    checked = models.BooleanField(default=False)
     contact = models.CharField(max_length=255, null=True, blank=True)
-    status = models.CharField(max_length=255, null=True, blank=True)
     vg_contact = models.CharField(max_length=255, null=True, blank=True)
 
     @classmethod
@@ -51,7 +39,7 @@ class Restaurant(models.Model):
             website = 'http://%s' % website
 
         restaurant = cls.objects.create(vegoresto_id=vegoresto_id, name=name, address=address, website=website,
-                phone=phone, mail=mail, contact=contact, status=status, vg_contact=vg_contact)
+                phone=phone, mail=mail, contact=contact, vg_contact=vg_contact)
         print "added:", name
 
         for geo in GEOCODERS:
@@ -71,18 +59,7 @@ class Restaurant(models.Model):
         else:
             print "Unknown address: %s (%s)" % (address, name)
 
-        restaurant.update_checked()
         return restaurant
-
-    def should_be_checked(self):
-        if self.status is None or 'OK' not in self.status:
-            return False
-
-        return True
-
-    def update_checked(self):
-        self.checked = self.should_be_checked()
-        self.save()
 
     def get_national_phone_number(self):
         if self.phone is None:

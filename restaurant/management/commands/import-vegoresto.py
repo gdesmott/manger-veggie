@@ -57,7 +57,6 @@ class Command(BaseCommand):
             resto.phone = resto_data.tel_fixe.text
             resto.mail = resto_data.mel_public.text
             resto.main_image = resto_data.image.text
-            resto.checked = True
 
             tags = parse_vg_tags(resto_data.categories_culinaires.text)
             if tags:
