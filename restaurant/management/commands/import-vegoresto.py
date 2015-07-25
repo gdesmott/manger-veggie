@@ -39,6 +39,10 @@ class Command(BaseCommand):
         soup = BeautifulSoup(xml_content)
 
         with transaction.atomic():
+            # hide everything, then we'll set restaurant with a
+            # review as active later
+            Restaurant.objects.update(active=False)
+
             for resto_data in soup.root.findAll('item'):
                 vegoresto_id = int(resto_data.id.text)
                 resto_set = Restaurant.objects.filter(vegoresto_id=vegoresto_id)
@@ -50,6 +54,10 @@ class Command(BaseCommand):
                     resto = Restaurant.create(vegoresto_id=vegoresto_id,
                                               name=resto_data.titre.text,
                                               address=resto_data.adresse.text)
+
+                # we don't want to display resto with no review
+                if resto_data.vegetik_review.text:
+                    resto.active = True
 
                 resto.review = resto_data.vegetik_review.text
                 resto.approved_date = parse(resto_data.vegetik_approved_date.text)
