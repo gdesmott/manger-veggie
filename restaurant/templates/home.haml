@@ -11,6 +11,8 @@
   -leaflet_css
   %script{src:"{{ STATIC_URL }}js/mustache.js"}
   %script{src:"{{ STATIC_URL }}js/utils.js"}
+  %script{src:"{{ STATIC_URL }}js/map.js"}
+  %script{src:"//code.jquery.com/jquery.min.js"}
 
   :css
     .leaflet-container {
@@ -22,33 +24,12 @@
         padding-top: 51px; /*for navbar*/
     }
 
-  :javascript
-    function map_init (map, options) {
-      $.getJSON("restaurants.json", function(data) {
-        for (var i = 0; i < data.length; i ++) {
-          var icon = L.AwesomeMarkers.icon({
-            icon: 'cutlery',
-            markerColor: tags_to_color(data[i]["tags"]),
-          })
-
-          var resto = data[i];
-          var marker = L.marker([resto.lat, resto.lon], {icon: icon}).bindPopup(Mustache.to_html(Mustache.TEMPLATES.restopopup, {resto: resto}));
-          markers_cluster.addLayer(marker);
-        }
-      })
-
-      // Locate user
-      var lc = L.control.locate().addTo(map);
-      lc.locate();
-
-      // makercluster
-      var markers_cluster = new L.MarkerClusterGroup({ disableClusteringAtZoom: 17 });
-      map.addLayer(markers_cluster);
-    }
 
 -block bootstrap3_content
+  -include "welcome.haml"
   -include "navbar.haml"
   -mustachejs "restopopup"
+
 
   .container
   -leaflet_map "map" callback="window.map_init"

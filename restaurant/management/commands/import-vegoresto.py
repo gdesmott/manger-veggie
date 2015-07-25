@@ -14,7 +14,7 @@ VG_TAGS = {
         'sans_gluten': 'gluten-free',
         'vege': 'vegetarian',
         'vegan': 'vegan',
-        #'Vegan-friendly': 'vegan-friendly'
+        'vegan_friendly': 'vegan-friendly'
         }
 
 

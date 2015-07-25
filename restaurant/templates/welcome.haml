@@ -1,0 +1,37 @@
+%script{src:"{{ STATIC_URL }}js/welcome.js"}
+/ Modal
+#welcomeModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %h4#myModalLabel.modal-title Manger Veggie
+      .modal-body
+        %h3 Bienvenue chez manger veggie
+        Hola donde esta el autopista del queso ?
+      .modal-footer
+        /%button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Ok
+        %button#next-page-button.btn.btn-primary{:type => "button"} Suite
+
+#preferenceModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %h4#myModalLabel.modal-title Préférences
+      .modal-body
+        \Pour affiner le choix des restaurants présentés, Veuillez-nous en dire plus à votre sujet :
+        .container
+          %label Etes-vous végétalien ?
+          %ul.nav.nav-pills
+            %li#vegan{:role => "ponk"}
+              %a{:href => "#"} Oui
+            %li#not-vegan{:role => "ponk"}
+              %a{:href => "#"} Non
+        .container
+          %label Etes-vous intolérant au gluten ?
+          %ul.nav.nav-pills
+            %li#gluten-free{:role => "pew"}
+              %a{:href => "#"} Oui
+            %li#not-gluten-free{:role => "pew"}
+              %a{:href => "#"} Non
+      .modal-footer
+        %button#finish-button.btn.btn-primary{:type => "button"} Fin
