@@ -1,5 +1,5 @@
 <center><h4>{{ resto.name }}</h4></center>
-<hr>{{ resto.address }}<br>
+<hr>{{{ resto.address }}}<br>
 {{#resto.phone}}<a href="tel:{{ resto.international_phone_number }}">{{ resto.phone }}</a><br> {{/resto.phone}}
 {{#resto.website}} <a href="{{ resto.website }}">{{ resto.website }}</a><br> {{/resto.website}}
 <a href="https://maps.google.com/maps?saddr=&daddr={{ resto.lat }},{{ resto.lon }}" target="_blank">Itinéraire (via Google Maps)</a><br> <!-- keep in sync with the resto detail page -->
