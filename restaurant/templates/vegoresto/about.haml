@@ -1,0 +1,20 @@
+-extends "base.haml"
+
+-load leaflet_tags
+
+-block bootstrap3_title
+  {{ APP_NAME }}
+
+-block bootstrap3_content
+  %script{src:"{{ STATIC_URL }}js/utils.js"}
+
+  :css
+    body {
+        padding-top: 51px; /*for navbar*/
+    }
+
+  .container
+    -include "navbar.haml"
+    .row
+      %h1 {{ APP_NAME }}
+      TODO

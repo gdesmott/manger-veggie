@@ -3,10 +3,9 @@
 -load leaflet_tags
 
 -block bootstrap3_title
-  Manger Veggie - {{ restaurant.name }}
+  {{ APP_NAME }} - {{ restaurant.name }}
 
 -block bootstrap3_content
-  %link{href: "/static/css/styles.css", rel: "stylesheet"}
   %script{src:"{{ STATIC_URL }}js/utils.js"}
   -leaflet_js
   -leaflet_css

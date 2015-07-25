@@ -94,6 +94,7 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
+                'vegout.context_processors.flavour',
             ],
             'loaders': [
                 'hamlpy.template.loaders.HamlPyFilesystemLoader',
@@ -140,6 +141,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 JSTEMPLATE_DIRS = [ os.path.join(BASE_DIR, 'restaurant', 'templates') ]
+
+VEGO_RESTO = False
+APP_NAME = "Manger Veggie"
 
 try:
     from settings_local import *

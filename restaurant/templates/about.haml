@@ -3,10 +3,9 @@
 -load leaflet_tags
 
 -block bootstrap3_title
-  Manger Veggie
+  {{ APP_NAME }}
 
 -block bootstrap3_content
-  %link{href: "/static/css/styles.css", rel: "stylesheet"}
   %script{src:"{{ STATIC_URL }}js/utils.js"}
 
   :css
@@ -17,7 +16,7 @@
   .container
     -include "navbar.haml"
     .row
-      %h1 Manger Veggie
+      %h1 {{ APP_NAME }}
       %p
         Trouver facilement où manger des plats végétariens et végétaliens de qualité grace à Manger Veggie.
       %p
