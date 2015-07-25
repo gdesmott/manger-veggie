@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 from taggit.managers import TaggableManager
 
@@ -7,6 +8,7 @@ from geopy.geocoders import ArcGIS, OpenMapQuest, GoogleV3, Nominatim, GeocoderD
 
 GEOCODERS = [Nominatim, GoogleV3, ArcGIS, OpenMapQuest, GeocoderDotUS]
 
+VEGO_RESTO_URL = "http://vegoresto.fr/resto/%s"
 
 class Restaurant(models.Model):
     vegoresto_id = models.BigIntegerField(unique=True)
@@ -88,6 +90,12 @@ class Restaurant(models.Model):
             return None
 
         return phonenumbers.format_number(phone_number, phonenumbers.PhoneNumberFormat.E164)
+
+    def get_details_page(self):
+        if settings.VEGO_RESTO:
+            return VEGO_RESTO_URL % self.vegoresto_url
+
+        return 'restaurant/%s' % self.id
 
     def tags_for_js(self):
         return [x.name.encode("Utf-8") for x in self.tags.all()]

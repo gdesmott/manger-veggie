@@ -15,6 +15,7 @@ def restaurants_json(request):
         "id": x.id,
         "national_phone_number": x.get_national_phone_number(),
         "international_phone_number": x.get_international_phone_number(),
+        "details_page": x.get_details_page(),
         "tags": [tag["name"] for tag in x.tags.all().values("name")],
     } for x in Restaurant.objects.filter(lat__isnull=False, lon__isnull=False, active=True)], indent=4))
 
