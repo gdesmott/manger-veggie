@@ -33,6 +33,8 @@
       %hr
 
       .col-md-6
+        =restaurant.review|safe
+
         %h3 Details
         %ul
           %li Address: {{ restaurant.address|safe }}
