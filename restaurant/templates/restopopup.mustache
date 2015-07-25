@@ -2,5 +2,6 @@
 <hr>{{ resto.address }}<br>
 {{#resto.phone}} {{ resto.phone }}<br> {{/resto.phone}}
 {{#resto.website}} <a href="{{ resto.website }}">{{ resto.website }}</a><br> {{/resto.website}}
+<a href="https://maps.google.com/maps?saddr=&daddr={{ resto.lat }},{{ resto.lon }}" target="_blank">Itinéraire (via Google Maps)</a><br>
 <i><a href="restaurant/{{ resto.id }}/">Plus d'informations</a></i>
 <p>{{#resto.tags}}<span class="label label-success">{{.}}</span> {{/resto.tags}}</p>
