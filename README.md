@@ -70,6 +70,10 @@ STATIC_ROOT = '/home/mangerveggie/manger-veggie/static_deploy/static/'
 
     python manage.py runserver
 
+or if you want to run the RestoVego version:
+
+    python manage.py runserver --settings=vegout.vegoresto_settings
+
 If it runs without any error, it's a good sign. You can look at
 <code>http://localhost:8000</code> to a play a bit with it if you want (with
 curl or something like that). You can also run it this way to access if from
