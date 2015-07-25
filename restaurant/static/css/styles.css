@@ -182,4 +182,14 @@ footer {
   padding-left: 15px;
 }
 
+.nav .open > a, .nav .open > a:hover, .nav .open > a:active, .nav .open > a:focus {
+    background-color: #22dd56;
+    border-color: #22dd56;
+}
+
+.navbar-nav > li > a:focus, .navbar-nav > li > a:hover, .navbar-nav > li > a:active {
+    background-color: #22dd56;
+    border-color: #22dd56;
+}
+
 /* -- end custom css for Bootstrap 3.x --*/
