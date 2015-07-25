@@ -55,6 +55,8 @@ class Command(BaseCommand):
 
                 if resto_set.exists():
                     resto = resto_set[0]
+                    resto.name = unescape(resto_data.titre.text)
+                    resto.address = unescape(resto_data.adresse.text)
                 else:
                     resto = Restaurant.create(vegoresto_id=vegoresto_id,
                                               name=unescape(resto_data.titre.text),
