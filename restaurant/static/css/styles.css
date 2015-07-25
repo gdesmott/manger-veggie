@@ -41,7 +41,10 @@ img.grayscale {
 .scroll-top {
   /* background-color:#33ee67; */
   /* XXX green */
-  background-color:#019700;
+  background: -webkit-linear-gradient(#6AEC30, #41B72F); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#6AEC30, #41B72F); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#6AEC30, #41B72F); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#6AEC30, #41B72F); /* Standard syntax */
 }
 
 .header .btn-lg {
@@ -64,13 +67,19 @@ img.grayscale {
 .navbar-bold.affix {
   /* background-color:#33ee67; */
   /* XXX green */
-  background-color:#019700;
+  background: -webkit-linear-gradient(#6AEC30, #41B72F); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#6AEC30, #41B72F); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#6AEC30, #41B72F); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#6AEC30, #41B72F); /* Standard syntax */
 }
 
 .navbar-bold {
   /* background-color:#33ee67; */
   /* XXX green */
-  background-color:#019700;
+  background: -webkit-linear-gradient(#6AEC30, #41B72F); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#6AEC30, #41B72F); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#6AEC30, #41B72F); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#6AEC30, #41B72F); /* Standard syntax */
   font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
