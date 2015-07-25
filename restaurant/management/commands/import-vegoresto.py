@@ -1,3 +1,4 @@
+import HTMLParser
 from django.core.management.base import BaseCommand
 
 from restaurant.models import Restaurant
@@ -29,6 +30,10 @@ def parse_vg_tags(tags):
     return result
 
 
+def unescape(string):
+    return HTMLParser.HTMLParser().unescape(string)
+
+
 class Command(BaseCommand):
     args = ''
 
@@ -52,14 +57,14 @@ class Command(BaseCommand):
                     resto = resto_set[0]
                 else:
                     resto = Restaurant.create(vegoresto_id=vegoresto_id,
-                                              name=resto_data.titre.text,
-                                              address=resto_data.adresse.text)
+                                              name=unescape(resto_data.titre.text),
+                                              address=unescape(resto_data.adresse.text))
 
                 # we don't want to display resto with no review
                 if resto_data.vegetik_review.text:
                     resto.active = True
 
-                resto.review = resto_data.vegetik_review.text
+                resto.review = unescape(resto_data.vegetik_review.text)
                 resto.approved_date = parse(resto_data.vegetik_approved_date.text)
                 resto.lat = float(resto_data.lat.text)
                 resto.lon = float(resto_data.lon.text)
