@@ -63,7 +63,10 @@ img.grayscale {
 .navbar a {
   color:#fff;
 }
-
+.navbar-logo {
+    height: 120%;
+    width: auto;
+}
 .navbar-bold.affix {
   /* background-color:#33ee67; */
   /* XXX green */
