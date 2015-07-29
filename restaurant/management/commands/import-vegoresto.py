@@ -2,6 +2,7 @@ import HTMLParser
 from django.core.management.base import BaseCommand
 
 from restaurant.models import Restaurant
+from restaurant.utils import VG_TAGS
 from BeautifulSoup import BeautifulSoup
 import urllib2
 from dateutil.parser import parse
@@ -10,14 +11,6 @@ from django.db import transaction
 
 source_url = 'http://vegoresto.fr/restos-fichier-xml/'
 
-VG_TAGS = {
-        'sans_gluten': 'gluten-free',
-        'vege': 'vegetarian',
-        'vegan': 'vegan',
-        'vegan_friendly': 'vegan-friendly'
-        }
-
-
 def parse_vg_tags(tags):
     result = set()
 
@@ -25,7 +18,7 @@ def parse_vg_tags(tags):
         try:
             result.add(VG_TAGS[t])
         except KeyError:
-            print "WARNING: Unknown tag %s" % t
+            result.add(t)
 
     return result
 
