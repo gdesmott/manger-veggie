@@ -11,7 +11,7 @@ GEOCODERS = [Nominatim, GoogleV3, ArcGIS, OpenMapQuest, GeocoderDotUS]
 class Restaurant(models.Model):
     vegoresto_id = models.BigIntegerField(unique=True)
 
-    active = models.BooleanField(default=True)
+    active = models.BooleanField(default=False)
 
     review = models.TextField(null=True)
     approved_date = models.DateField(null=True)
