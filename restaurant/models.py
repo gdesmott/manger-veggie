@@ -10,6 +10,7 @@ GEOCODERS = [Nominatim, GoogleV3, ArcGIS, OpenMapQuest, GeocoderDotUS]
 
 class Restaurant(models.Model):
     vegoresto_id = models.BigIntegerField(unique=True)
+    vegoresto_url = models.TextField(null=True)
 
     active = models.BooleanField(default=False)
 
