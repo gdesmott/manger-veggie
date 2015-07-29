@@ -64,9 +64,7 @@ class Command(BaseCommand):
                                               name=unescape(resto_data.titre.text),
                                               address=unescape(resto_data.adresse.text))
 
-                # we don't want to display resto with no review
-                if resto_data.vegetik_review.text:
-                    resto.active = True
+                resto.active = True
 
                 resto.review = unescape(resto_data.vegetik_review.text)
                 resto.approved_date = parse(resto_data.vegetik_approved_date.text)
