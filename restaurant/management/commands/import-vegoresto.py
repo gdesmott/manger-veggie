@@ -10,11 +10,13 @@ from django.db import transaction
 
 source_url = 'http://vegoresto.fr/restos-fichier-xml/'
 
+VEGAN_FRIENDLY = 'vegan-friendly'
+
 VG_TAGS = {
         'sans_gluten': 'gluten-free',
         'vege': 'vegetarian',
         'vegan': 'vegan',
-        'vegan_friendly': 'vegan-friendly'
+        'vegan_friendly': VEGAN_FRIENDLY
         }
 
 
@@ -76,7 +78,10 @@ class Command(BaseCommand):
                 resto.mail = resto_data.mel_public.text
                 resto.main_image = resto_data.image.text
                 resto.country_code = resto_data.pays.text.upper()
+
                 tags = parse_vg_tags(resto_data.categories_culinaires.text)
+                if resto_data.vegetik_veganfriendly.text == 'TRUE':
+                    tags.add(VEGAN_FRIENDLY)
                 if tags:
                     resto.tags.add(*tags)
 
