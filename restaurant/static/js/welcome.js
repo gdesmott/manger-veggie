@@ -59,6 +59,8 @@ $(document).ready(function() {
         localStorage.setItem("welcome-message-seen", "true");
     });
 
-    if(!localStorage.getItem("welcome-message-seen"))
+    //FIXME: disabled for now
+    //if(!localStorage.getItem("welcome-message-seen"))
+    if (false)
         $("#welcomeModal").modal(modal_options);
 });
