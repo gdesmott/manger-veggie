@@ -62,19 +62,27 @@ class Restaurant(models.Model):
 
         return restaurant
 
-    def get_national_phone_number(self):
+    def _parse_phone_number(self):
         if self.phone is None:
             return None
 
-        x = phonenumbers.parse(self.phone, self.country_code)
-        return phonenumbers.format_number(x, phonenumbers.PhoneNumberFormat.NATIONAL)
+        return phonenumbers.parse(self.phone, self.country_code)
+
+    def get_national_phone_number(self):
+        phone_number = self._parse_phone_number()
+
+        if phone_number is None:
+            return None
+
+        return phonenumbers.format_number(phone_number, phonenumbers.PhoneNumberFormat.NATIONAL)
 
     def get_international_phone_number(self):
-        if self.phone is None:
+        phone_number = self._parse_phone_number()
+
+        if phone_number is None:
             return None
 
-        x = phonenumbers.parse(self.phone, self.country_code)
-        return phonenumbers.format_number(x, phonenumbers.PhoneNumberFormat.E164)
+        return phonenumbers.format_number(phone_number, phonenumbers.PhoneNumberFormat.E164)
 
     def tags_for_js(self):
         return [x.name.encode("Utf-8") for x in self.tags.all()]
