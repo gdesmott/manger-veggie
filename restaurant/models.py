@@ -75,7 +75,7 @@ class Restaurant(models.Model):
         try:
             return phonenumbers.parse(self.phone, self.country_code)
         except phonenumbers.NumberParseException:
-            print "Warning: '%s' is an uparsable phone number" % self.phone
+            print (u"Warning: '%s' is an uparsable phone number" % self.phone).encode('utf-8')
             return None
 
     def get_national_phone_number(self):
