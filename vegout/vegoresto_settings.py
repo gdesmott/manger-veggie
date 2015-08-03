@@ -4,3 +4,6 @@ VEGO_RESTO = True
 APP_NAME = "Vego Resto"
 
 TEMPLATES[0]['DIRS'].append(os.path.join(BASE_DIR, 'restaurant', 'templates', 'vegoresto'))
+
+LEAFLET_CONFIG['DEFAULT_CENTER'] = (46.464, 2.791)
+LEAFLET_CONFIG['DEFAULT_ZOOM'] = 7
