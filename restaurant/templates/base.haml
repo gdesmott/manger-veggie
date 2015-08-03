@@ -1,7 +1,12 @@
 -extends "bootstrap3/bootstrap3.html"
 
 -block bootstrap3_extra_head
-  %link{href: "/static/img/favicon.png", rel: "shortcut icon"}
+  {% if VEGO_RESTO %}
+    %link{href: "http://vegoresto.fr/favicon.ico", rel: "icon", type:"image/x-icon"}
+  {% else %}
+    %link{href: "/static/img/favicon.png", rel: "shortcut icon"}
+  {% endif %}
+
   %link{href: "/static/img/logo-highicon.png", rel: "shortcut icon", size: "192x192"}
   %meta{name: "mobile-web-app-capable", content: "yes"}
 
