@@ -14,8 +14,7 @@ def restaurants_json(request):
           'active': True }
 
     if settings.VEGO_RESTO:
-        # TODO: how do we want to filter vego resto restaurants?
-        pass
+        f['vegoresto'] = True
     else:
         f['review__iregex'] = r'^.{%d,}$' % MIN_REVIEW_LEN
 

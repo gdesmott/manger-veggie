@@ -14,6 +14,8 @@ VEGO_RESTO_URL = "http://vegoresto.fr/resto/%s"
 class Restaurant(models.Model):
     vegoresto_id = models.BigIntegerField(unique=True)
     vegoresto_url = models.TextField(null=True)
+    # True if the restaurant should appear on VegoResto
+    vegoresto = models.BooleanField(default=False)
 
     active = models.BooleanField(default=False)
 
