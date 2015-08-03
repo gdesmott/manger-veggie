@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.core.urlresolvers import reverse
 
 from taggit.managers import TaggableManager
 
@@ -91,11 +92,11 @@ class Restaurant(models.Model):
 
         return phonenumbers.format_number(phone_number, phonenumbers.PhoneNumberFormat.E164)
 
-    def get_details_page(self):
+    def get_absolute_url(self):
         if settings.VEGO_RESTO:
             return VEGO_RESTO_URL % self.vegoresto_url
 
-        return 'restaurant/%s' % self.id
+        return reverse('restaurant_detail', args=[str(self.id)])
 
     def tags_for_js(self):
         return [x.name.encode("Utf-8") for x in self.tags.all()]
