@@ -12,3 +12,7 @@
   background: none;
   background-color: brown;
 }
+
+#suggest {
+  display: none;
+}
