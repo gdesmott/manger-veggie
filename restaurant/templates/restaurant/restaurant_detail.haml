@@ -42,9 +42,9 @@
               %a{href: "tel:{{ restaurant.get_international_phone_number }}"}
                 =restaurant.get_national_phone_number
           -if restaurant.website
-            %li Site web:
+            %li
               %a{href: "{{ restaurant.website }}"}
-                =restaurant.website
+                ="Site web"
           %li
             %a{href: "https://maps.google.com/maps?saddr=&daddr={{ restaurant.lat }},{{ restaurant.lon }}" }
                 ="Itinéraire (via Google Maps)"
