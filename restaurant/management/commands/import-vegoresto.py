@@ -13,11 +13,11 @@ source_url = 'http://vegoresto.fr/restos-fichier-xml/'
 VEGAN_FRIENDLY = 'vegan-friendly'
 
 VG_TAGS = {
-        'sans_gluten': 'gluten-free',
-        'vege': 'vegetarian',
-        'vegan': 'vegan',
-        'vegan_friendly': VEGAN_FRIENDLY
-        }
+    'sans_gluten': 'gluten-free',
+    'vege': 'vegetarian',
+    'vegan': 'vegan',
+    'vegan_friendly': VEGAN_FRIENDLY
+}
 
 
 def parse_vg_tags(tags):
