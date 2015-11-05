@@ -38,11 +38,13 @@
         %ul
           %li Address: {{ restaurant.address|safe }}
           -if restaurant.phone
-            %li Téléphone:
+            %li
+              %span{class:'glyphicon glyphicon-earphone', aria-hidden:'true'}
               %a{href: "tel:{{ restaurant.get_international_phone_number }}"}
                 =restaurant.get_national_phone_number
           -if restaurant.website
             %li
+              %span{class:'glyphicon glyphicon-globe', aria-hidden:'true'}
               %a{href: "{{ restaurant.website }}"}
                 ="Site web"
           %li

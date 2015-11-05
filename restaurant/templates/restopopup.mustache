@@ -1,7 +1,7 @@
 <center><h4>{{ resto.name }}</h4></center>
 <hr>{{{ resto.address }}}<br>
-{{#resto.phone}}<a href="tel:{{ resto.international_phone_number }}">{{ resto.phone }}</a><br> {{/resto.phone}}
-{{#resto.website}} <a href="{{ resto.website }}">{{ resto.website }}</a><br> {{/resto.website}}
-<a href="https://maps.google.com/maps?saddr=&daddr={{ resto.lat }},{{ resto.lon }}" target="_blank">Itinéraire (via Google Maps)</a><br> <!-- keep in sync with the resto detail page -->
-<i><a href="{{ resto.absolute_url }}">Plus d'informations</a></i>
+{{#resto.phone}}<span class="glyphicon glyphicon-earphone" aria-hidden="true"/> <a href="tel:{{ resto.international_phone_number }}">{{ resto.phone }}</a><br> {{/resto.phone}}
+{{#resto.website}}<span class="glyphicon glyphicon-globe" aria-hidden="true"/>  <a href="{{ resto.website }}">Site web</a><br> {{/resto.website}}
+<span class="glyphicon glyphicon-road" aria-hidden="true"/> <a href="https://maps.google.com/maps?saddr=&daddr={{ resto.lat }},{{ resto.lon }}" target="_blank">Itinéraire (via Google Maps)</a><br> <!-- keep in sync with the resto detail page -->
+<span class="glyphicon glyphicon-info-sign" aria-hidden="true"/> <i><a href="{{ resto.absolute_url }}">Plus d'informations</a></i>
 <p>{{#resto.tags}}<span class="label label-success">{{.}}</span> {{/resto.tags}}</p>
