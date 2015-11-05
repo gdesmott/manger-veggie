@@ -63,7 +63,7 @@ class Restaurant(models.Model):
             restaurant.lon = location.longitude
             restaurant.save()
         else:
-            print "Unknown address: %s (%s)" % (address, name)
+            print "Unknown address: %s (%s)" % (address, name.encode("Utf-8"))
 
         return restaurant
 
