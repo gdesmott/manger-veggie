@@ -34,7 +34,6 @@ def parse_vg_tags(tags):
 
 def unescape(string):
     string = HTMLParser.HTMLParser().unescape(string)
-    string = string.replace('&rsquo;', "'")
     return string
 
 
@@ -60,7 +59,7 @@ class Command(BaseCommand):
 
                 if resto_set.exists():
                     resto = resto_set[0]
-                    resto.name = unescape(name)
+                    resto.name = unescape(unescape(name))
                     resto.address = unescape(resto_data.adresse.text)
                 else:
                     resto = Restaurant.create(vegoresto_id=vegoresto_id,
