@@ -63,7 +63,7 @@ class Command(BaseCommand):
                     resto.address = unescape(resto_data.adresse.text)
                 else:
                     resto = Restaurant.create(vegoresto_id=vegoresto_id,
-                                              name=unescape(name),
+                                              name=unescape(unescape(name)),
                                               address=unescape(resto_data.adresse.text))
 
                 resto.active = True
