@@ -53,15 +53,16 @@ class Command(BaseCommand):
             for resto_data in soup.root.findAll('item'):
                 vegoresto_id = int(resto_data.id.text)
                 resto_set = Restaurant.objects.filter(vegoresto_id=vegoresto_id)
-                print 'importing {0}'.format(resto_data.titre.text.encode('utf-8'))
+                name = resto_data.titre.text
+                print 'importing {0}'.format(name.encode('utf-8'))
 
                 if resto_set.exists():
                     resto = resto_set[0]
-                    resto.name = unescape(resto_data.titre.text)
+                    resto.name = unescape(name)
                     resto.address = unescape(resto_data.adresse.text)
                 else:
                     resto = Restaurant.create(vegoresto_id=vegoresto_id,
-                                              name=unescape(resto_data.titre.text),
+                                              name=unescape(name),
                                               address=unescape(resto_data.adresse.text))
 
                 resto.active = True
