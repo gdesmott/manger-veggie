@@ -48,6 +48,7 @@
               %a{href: "{{ restaurant.website }}"}
                 ="Site web"
           %li
+            %span{class:'glyphicon glyphicon-road', aria-hidden:'true'}
             %a{href: "https://maps.google.com/maps?saddr=&daddr={{ restaurant.lat }},{{ restaurant.lon }}" }
                 ="Itinéraire (via Google Maps)"
                 -# keep in sync with the popup mustache template
