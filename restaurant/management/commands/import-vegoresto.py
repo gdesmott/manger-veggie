@@ -33,7 +33,9 @@ def parse_vg_tags(tags):
 
 
 def unescape(string):
-    return HTMLParser.HTMLParser().unescape(string)
+    string = HTMLParser.HTMLParser().unescape(string)
+    string = string.replace('&rsquo;', "'")
+    return string
 
 
 class Command(BaseCommand):
