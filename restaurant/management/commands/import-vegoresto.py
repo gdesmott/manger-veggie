@@ -70,7 +70,7 @@ class Command(BaseCommand):
                 resto.approved_date = parse(resto_data.vegetik_approved_date.text)
                 resto.lat = float(resto_data.lat.text)
                 resto.lon = float(resto_data.lon.text)
-                resto.website = resto_data.link.text
+                resto.website = resto_data.site_internet.text
                 resto.description = resto_data.description.text
                 resto.phone = resto_data.tel_fixe.text
                 resto.mail = resto_data.mel_public.text
