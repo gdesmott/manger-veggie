@@ -47,7 +47,6 @@ class Restaurant(models.Model):
 
         restaurant = cls.objects.create(vegoresto_id=vegoresto_id, name=name, address=address, website=website,
                 phone=phone, mail=mail, contact=contact, vg_contact=vg_contact)
-        print "added:", name
 
         for geo in GEOCODERS:
             geolocator = geo()
