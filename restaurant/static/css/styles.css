@@ -202,3 +202,11 @@ footer {
 }
 
 /* -- end custom css for Bootstrap 3.x --*/
+
+.restaurant-details {
+  margin-top: 10px;
+}
+
+.restaurant-details > ul {
+  list-style-type: none;
+}
