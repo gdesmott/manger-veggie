@@ -1,4 +1,4 @@
-package vegout.desmottes.be.vegout;
+package be.manger_veggie.mangerveggie;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import vegout.desmottes.be.vegout.R;
 
 
 public class MainActivity extends Activity {

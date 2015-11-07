@@ -1,4 +1,4 @@
-package vegout.desmottes.be.vegout;
+package be.manger_veggie.mangerveggie;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
