@@ -65,9 +65,7 @@ public class MainActivity extends Activity {
             }
         });
         webView.setWebViewClient(new CustomWebViewClient());
-        //webView.loadUrl("http://manger-veggie.be");
-        webView.loadUrl("http://172.17.229.127:8000");
-
+        webView.loadUrl("http://manger-veggie.be");
     }
 
     private class CustomWebViewClient extends WebViewClient {
