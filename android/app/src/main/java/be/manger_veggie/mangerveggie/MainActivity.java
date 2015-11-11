@@ -2,10 +2,12 @@ package be.manger_veggie.mangerveggie;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.ConsoleMessage;
 import android.webkit.GeolocationPermissions;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -42,9 +44,15 @@ public class MainActivity extends Activity {
             public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
                 callback.invoke(origin, true, true);
             }
+
+            public boolean onConsoleMessage(ConsoleMessage msg) {
+                Log.d("mangerveggie", msg.sourceId() + "[" + msg.lineNumber() + "] " + msg.message());
+                return true;
+            }
         });
         webView.setWebViewClient(new CustomWebViewClient());
         webView.loadUrl("http://manger-veggie.be");
+
     }
 
     private class CustomWebViewClient extends WebViewClient {
