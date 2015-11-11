@@ -1,6 +1,7 @@
 package be.manger_veggie.mangerveggie;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -39,6 +40,14 @@ public class MainActivity extends Activity {
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setUseWideViewPort(true);
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings.setAppCacheEnabled(false);
+
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setDatabaseEnabled(true);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            webSettings.setDatabasePath("/data/data/" + webView.getContext().getPackageName() + "/databases/");
+        }
+
 
         webView.setWebChromeClient(new WebChromeClient() {
             public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
@@ -46,12 +55,18 @@ public class MainActivity extends Activity {
             }
 
             public boolean onConsoleMessage(ConsoleMessage msg) {
-                Log.d("mangerveggie", msg.sourceId() + "[" + msg.lineNumber() + "] " + msg.message());
+                Log.w("mangerveggie", msg.sourceId() + "[" + msg.lineNumber() + "] " + msg.message());
                 return true;
+            }
+            public void onConsoleMessage(String message, int lineNumber, String sourceID) {
+                Log.w("MyApplication", message + " -- From line "
+                        + lineNumber + " of "
+                        + sourceID);
             }
         });
         webView.setWebViewClient(new CustomWebViewClient());
-        webView.loadUrl("http://manger-veggie.be");
+        //webView.loadUrl("http://manger-veggie.be");
+        webView.loadUrl("http://172.17.229.127:8000");
 
     }
 
