@@ -1,6 +1,8 @@
-package be.manger_veggie.mangerveggie;
+package be.desmottes.mangerveggie;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -71,14 +73,19 @@ public class MainActivity extends Activity {
     private class CustomWebViewClient extends WebViewClient {
         public boolean shouldOverrideUrlLoading(WebView view, String url)
         {
-            //do whatever you want with the url that is clicked inside the webview.
-            //for example tell the webview to load that url.
-            boolean shouldHandle = url.contains("manger-veggie.be");
-            if(shouldHandle)
+            if (url.startsWith("tel:")) {
+                Intent intent = new Intent(Intent.ACTION_DIAL,
+                        Uri.parse(url));
+                startActivity(intent);
+                return true;
+            }
+
+            boolean handleInWebview = url.contains("manger-veggie.be");
+            if(handleInWebview)
                 view.loadUrl(url);
             //return true if this method handled the link event
             //or false otherwise
-            return shouldHandle;
+            return handleInWebview;
         }
 
 
