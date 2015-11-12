@@ -1,16 +1,21 @@
+/* http://vegoresto.fr/wp-content/themes/vegoresto/style.css
+- bleu:		#7AA0A1
+- orange:	#F49B27
+- vert:		#76AD56 */
+
 .scroll-top {
   background: none;
-  background-color: brown;
+  background-color: #F49B27;
 }
 
 .navbar-bold.affix {
   background: none;
-  background-color: brown;
+  background-color: #F49B27;
 }
 
 .navbar-bold {
   background: none;
-  background-color: brown;
+  background-color: #F49B27;
 }
 
 #suggest {
