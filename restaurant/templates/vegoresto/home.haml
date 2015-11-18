@@ -1,0 +1,39 @@
+-extends "base.haml"
+
+-load leaflet_tags
+-load jstemplate
+
+-block bootstrap3_title
+  {{ APP_NAME }}
+
+-block head
+  -leaflet_js
+  -leaflet_css
+  %script{src:"{{ STATIC_URL }}js/mustache.js"}
+  %script{src:"{{ STATIC_URL }}js/utils.js"}
+  %script{src:"{{ STATIC_URL }}js/map.js"}
+  %script{src:"//code.jquery.com/jquery.min.js"}
+
+  :javascript
+    $(document).ready(function(){ add_mobile_link(); });
+
+  :css
+    .leaflet-container {
+        width:  100%;
+        height: 100%;
+    }
+
+    body {
+        padding-top: 51px; /*for navbar*/
+    }
+
+
+-block bootstrap3_content
+  -include "welcome.haml"
+  -include "navbar.haml"
+  -mustachejs "restopopup"
+
+
+  .container
+  -leaflet_map "map" callback="window.map_init"
+  -include "legend-overlay.haml"

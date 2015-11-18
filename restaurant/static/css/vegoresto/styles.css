@@ -21,3 +21,51 @@
 #suggest {
   display: none;
 }
+
+/* later?
+@font-face {
+    font-family:'Olivier';
+    src: url(//vegoresto.fr/wp-content/themes/vegoresto/fonts/olivier_demo-webfont.woff2) format('woff2');
+}
+.navbar-brand img {
+    display: inline;
+}
+.navbar-brand div {
+    display: inline-block;
+    font-family:'Olivier';
+} */
+.navbar-brand {
+    padding: 0px;
+}
+
+.navbar-logo {
+    height: 50px;
+}
+
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    overflow: auto;
+    background-color:  rgba(255, 255, 255, 0.5);
+    text-align: center;
+    vertical-align: middle;
+}
+
+.overlay ul {
+    padding: 0;
+    margin: 0;
+}
+
+.overlay li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.overlay .awesome-marker {
+    position: relative;
+    display: inline-block;
+}
