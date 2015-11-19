@@ -14,6 +14,9 @@
   %script{src:"{{ STATIC_URL }}js/map.js"}
   %script{src:"//code.jquery.com/jquery.min.js"}
 
+  :javascript
+    $(document).ready(function(){ add_mobile_link(); });
+
   :css
     .leaflet-container {
         width:  100%;
