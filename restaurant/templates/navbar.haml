@@ -43,12 +43,12 @@
                   Végan
       %ul.nav.navbar-nav.navbar-right
         %li#android-download-menu
-          %a{href: 'https://play.google.com/store/apps/details?id=be.desmottes.mangerveggie'}
+          %a{href: '{{ ANDROID_APP_URL }}'}
             %img.google-play-badge-menu{src: '{{ STATIC_URL }}img/google-play-badge.png'}
         %li#mobile-shortcut-menu
           %a{href: 'about#mobile_shortcut'}
             Ajouter un raccourci vers {{ APP_NAME }}
         %li#suggest
-          %a{href: "{{ ANDROID_APP_URL }}"} Suggérer un restaurant
+          %a{href: "http://goo.gl/forms/AoBT7976ao"} Suggérer un restaurant
         %li
           %a{href: "/about"} À propos
