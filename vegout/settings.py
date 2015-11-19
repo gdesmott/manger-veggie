@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for vegout project.
 
@@ -50,6 +51,11 @@ LEAFLET_CONFIG = {
     'DEFAULT_ZOOM': 8,
     'MIN_ZOOM': 2,
     'MAX_ZOOM': 19,
+
+    # https://www.mapbox.com/mapbox.js/example/v1.0.0/plain-leaflet/
+    'TILES': "https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZHJ6cmFmIiwiYSI6ImNpaDUwdnl2cTB6b2N2a201aWFidmlnYzIifQ.QA_mphcWhdwAh6sgdAzdcg",
+    # https://www.mapbox.com/help/attribution/
+    'ATTRIBUTION_PREFIX': "© <a href='https://www.mapbox.com/map-feedback/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>",
 
     'PLUGINS': {
         'locate': {

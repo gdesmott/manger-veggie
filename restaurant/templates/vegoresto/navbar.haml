@@ -1,8 +1,8 @@
 .navbar.navbar-fixed-top.navbar-bold{data-spy: "affix", data-offset-top: "1000"}
   .container
     .navbar-header
-      %a.navbar-brand{href: "/"}
-        {{ APP_NAME }}
+      %a.navbar-brand{href: "/about"}
+        %img.navbar-logo{src:"{{ STATIC_URL }}img/vegoresto-topbar-icon.png"}
       %a.navbar-toggle{data-toggle: "collapse", data-target: ".navbar-collapse"}
         %span.icon-bar
         %span.icon-bar
@@ -13,26 +13,6 @@
           %input.form-control{type: "text", placeholder: "Restaurant"}
         %button.btn.btn-default{type: "submit"}
           Rechercher
-      %ul.nav.navbar-nav
-        %li.dropdown
-          %a.dropdown-toggle{href: "#", data-toggle: "dropdown", role: "button", aria-expanded: "false"} Légende
-            %span.caret
-            %ul.dropdown-menu{role: "menu"}
-              %li
-                %a.legend.resto-filter{href: "#"}
-                  .awesome-marker-icon-orange.awesome-marker
-                    %i.glyphicon.glyphicon-cutlery.icon-white
-                  Végétarien
-              %li
-                %a.legend.resto-filter{href: "#"}
-                  .awesome-marker-icon-green.awesome-marker
-                    %i.glyphicon.glyphicon-cutlery.icon-white
-                  Vegan
-              %li
-                %a.legend.resto-filter{href: "#"}
-                  .awesome-marker-icon-blue.awesome-marker
-                    %i.glyphicon.glyphicon-cutlery.icon-white
-                  Traditionnel
       %ul.nav.navbar-nav.navbar-right
         %li
           %a{href: "/about"} À propos
