@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             webSettings.setDatabasePath("/data/data/" + webView.getContext().getPackageName() + "/databases/");
         }
-
+        webSettings.setUserAgentString(webSettings.getUserAgentString() + " " + getString(R.string.app_name));
 
         webView.setWebChromeClient(new WebChromeClient() {
             public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
