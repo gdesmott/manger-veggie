@@ -21,7 +21,7 @@ function add_mobile_link() {
     if(navigator.userAgent.indexOf("Manger Veggie") > -1) {
       return;
     }
-    $('<li><a href="https://play.google.com/store/apps/details?id=be.desmottes.mangerveggie">Installer l\'application pour Android</a></li>').prependTo(".navbar-right");
+    $('<li><a href="https://play.google.com/store/apps/details?id=be.desmottes.mangerveggie"><img class="google-play-badge-menu" src="static/img/google-play-badge.png"/></a></li>').prependTo(".navbar-right");
   }
   else if(/webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     $('<li><a href="/about#mobile_shortcut">Ajouter un raccourci vers vegOresto</a></li>').prependTo(".navbar-right");

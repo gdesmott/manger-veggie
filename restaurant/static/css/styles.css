@@ -213,3 +213,7 @@ footer {
 .restaurant-details > ul {
   list-style-type: none;
 }
+
+.google-play-badge-menu {
+  height: 25px;
+}
