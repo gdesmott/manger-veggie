@@ -150,6 +150,7 @@ JSTEMPLATE_DIRS = [ os.path.join(BASE_DIR, 'restaurant', 'templates') ]
 
 VEGO_RESTO = False
 APP_NAME = "Manger Veggie"
+ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=be.desmottes.mangerveggie"
 
 try:
     from settings_local import *

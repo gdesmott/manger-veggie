@@ -1,3 +1,6 @@
+:javascript
+  $(document).ready(function(){ on_navbar_ready(); });
+
 .navbar.navbar-fixed-top.navbar-bold{data-spy: "affix", data-offset-top: "1000"}
   .container
     .navbar-header
@@ -39,7 +42,13 @@
                     %i.glyphicon.glyphicon-cutlery.icon-white
                   Végan
       %ul.nav.navbar-nav.navbar-right
+        %li#android-download-menu
+          %a{href: 'https://play.google.com/store/apps/details?id=be.desmottes.mangerveggie'}
+            %img.google-play-badge-menu{src: '{{ STATIC_URL }}img/google-play-badge.png'}
+        %li#mobile-shortcut-menu
+          %a{href: 'about#mobile_shortcut'}
+            Ajouter un raccourci vers {{ APP_NAME }}
         %li#suggest
-          %a{href: "http://goo.gl/forms/AoBT7976ao"} Suggérer un restaurant
+          %a{href: "{{ ANDROID_APP_URL }}"} Suggérer un restaurant
         %li
           %a{href: "/about"} À propos
