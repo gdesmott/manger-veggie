@@ -22,11 +22,13 @@
   display: none;
 }
 
-/* later?
 @font-face {
-    font-family:'Olivier';
-    src: url(//vegoresto.fr/wp-content/themes/vegoresto/fonts/olivier_demo-webfont.woff2) format('woff2');
+    font-family: Olivier;
+    font-style: normal;
+    font-weight: 300;
+    src: url(http://vegoresto.fr/wp-content/themes/vegoresto/fonts/olivier_demo-webfont.woff) format('woff');
 }
+/*
 .navbar-brand img {
     display: inline;
 }
@@ -46,12 +48,14 @@
 .overlay {
     position: fixed;
     width: 100%;
-    height: 60px;
-    bottom: 0;
+    /* height: 30px; */
+    bottom: 22px; /* don't overlay under the "Attribution" div nor the scale div */
     overflow: auto;
     background-color:  rgba(255, 255, 255, 0.5);
     text-align: center;
     vertical-align: middle;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .overlay ul {
@@ -63,9 +67,6 @@
     list-style-type: none;
     display: inline-block;
     margin-right: 20px;
-}
-
-.overlay .awesome-marker {
-    position: relative;
-    display: inline-block;
+    border-bottom: 5px solid;
+    font-weight: bold;
 }
