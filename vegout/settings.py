@@ -51,6 +51,7 @@ LEAFLET_CONFIG = {
     'DEFAULT_ZOOM': 8,
     'MIN_ZOOM': 8,
     'MAX_ZOOM': 19,
+    'RESET_VIEW': False,
 
     # https://www.mapbox.com/mapbox.js/example/v1.0.0/plain-leaflet/
     'TILES': "https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZHJ6cmFmIiwiYSI6ImNpaDUwdnl2cTB6b2N2a201aWFidmlnYzIifQ.QA_mphcWhdwAh6sgdAzdcg",
