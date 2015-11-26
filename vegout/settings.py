@@ -49,7 +49,7 @@ INSTALLED_APPS = (
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (50.6407351, 4.66696),
     'DEFAULT_ZOOM': 8,
-    'MIN_ZOOM': 2,
+    'MIN_ZOOM': 8,
     'MAX_ZOOM': 19,
 
     # https://www.mapbox.com/mapbox.js/example/v1.0.0/plain-leaflet/
