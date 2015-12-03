@@ -21,17 +21,22 @@
         Avec <span style="font-family: Olivier">VegOresto</span>, trouvez facilement un restaurant où manger vegan :<br/>
         Restos végétariens, végétaliens ou traditionnels, tous proposent au moins une offre complète 100% végétale.
 
-      %p{style:"text-align: center"}
+      %p
+        Les établissements de restauration référencés par <span style="font-family: Olivier">VegOresto</span> proposent au moins un menu vegan à leur carte.
+        Les restaurateurs s'y sont engagés en signant la charte <span style="font-family: Olivier">VegOresto</span>.<br/>
+        <span style="font-family: Olivier">VegOresto</span> est une initiative de l'organisation de défense des animaux <a href="http://www.l214.com/">L214</a>.<br/>
         %a{href:"http://vegoresto.fr"} Rendez-vous sur vegoresto.fr pour en savoir plus.
 
-      %span{style:'text-decoration: underline'} Installer l'application mobile (pour Android uniquement) :
-      %p{style:'padding-left: 10px'}
-        L'application <span style="font-family: Olivier">VegOresto</span> pour Android est <a href="https://play.google.com/store/apps/details?id=be.desmottes.mangerveggie">disponible en téléchargement sur le PlayStore</a>.
-        
 
-      %span{style:'text-decoration: underline', name: "mobile_shortcut"} Ajouter un raccourci vers <span style="font-family: Olivier">VegOresto</span> :
-      %p{style:'padding-left: 10px'}
-        Pour ajouter un raccourci sur votre smartphone (iPhone, iPad, BlackBerry, ...), vous pouvez effectuer la procédure suivante :
-        TODO
-
-
+      %h3#mobile_shortcut Installer <span style="font-family: Olivier">VegOresto</span> sur smartphone
+      %p
+        %ul
+          %li
+            Android : il suffit de <a href="{{ ANDROID_APP_URL }}">l'installer via Play Store</a>.
+          %li
+            iPhone : ajoutez le site à votre écran d'accueil <a href="http://www.apple.com/chfr/ios/add-to-home-screen/">comme expliqué ici</a>.
+          %li
+            Windows Phone : épinglez le site sur l'écran d'accueil <a href="http://www.windowsphone.com/fr-be/how-to/wp7/start/pin-things-to-start">comme expliqué ici</a>.
+      %p
+        %a{href: '{{ ANDROID_APP_URL }}'}
+          %img.google-play-badge-about{src: '{{ STATIC_URL }}img/google-play-badge.png'}
