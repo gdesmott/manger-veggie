@@ -40,10 +40,11 @@
     padding: 0px;
 }
 
+/* navbar is 50px high */
 .navbar-logo {
-    height: 50px;
+    height: 44px;
+    margin-top: 3px;
 }
-
 
 .overlay {
     position: fixed;
