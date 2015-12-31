@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'leaflet',
     'taggit',
     'jstemplate',
+    'analytical',
 )
 
 LEAFLET_CONFIG = {
@@ -152,6 +153,9 @@ JSTEMPLATE_DIRS = [ os.path.join(BASE_DIR, 'restaurant', 'templates') ]
 VEGO_RESTO = False
 APP_NAME = "Manger Veggie"
 ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=be.desmottes.mangerveggie"
+
+# We want piwik only on deployements
+USE_PIWIK = False
 
 try:
     from settings_local import *

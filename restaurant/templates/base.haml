@@ -1,6 +1,10 @@
 -extends "bootstrap3/bootstrap3.html"
 
 -block bootstrap3_extra_head
+  {% if USE_PIWIK %}
+    {% load piwik %}
+  {% endif %}
+
   {% if VEGO_RESTO %}
     %link{href: "/static/img/vegoresto-favicon.png", rel: "icon"}
   {% else %}
@@ -18,5 +22,9 @@
   %script{src:"//code.jquery.com/jquery.min.js"}
   %script{src:"{{ STATIC_URL }}js/utils.js"}
   %script{src:"{{ STATIC_URL }}js/underscore-min.js"}
+
+  {% if USE_PIWIK %}
+    {% piwik %}
+  {% endif %}
 
   -block head
