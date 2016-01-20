@@ -71,3 +71,7 @@
     border-bottom: 5px solid;
     font-weight: bold;
 }
+
+.overlay li:last {
+    margin-right: 0px;
+}
