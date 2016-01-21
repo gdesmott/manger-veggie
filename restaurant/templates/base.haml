@@ -11,12 +11,13 @@
     %link{href: "/static/img/favicon.png", rel: "shortcut icon"}
   {% endif %}
 
-  %link{href: "/static/img/logo-highicon.png", rel: "shortcut icon", size: "192x192"}
   %meta{name: "mobile-web-app-capable", content: "yes"}
-
   %link{href: "/static/css/styles.css", rel: "stylesheet"}
+
   {% if VEGO_RESTO %}
     %link{href: "/static/css/vegoresto.css", rel: "stylesheet"}
+  {% else %}
+    %link{href: "/static/img/logo-highicon.png", rel: "shortcut icon", size: "192x192"}
   {% endif %}
 
   %script{src:"//code.jquery.com/jquery.min.js"}
