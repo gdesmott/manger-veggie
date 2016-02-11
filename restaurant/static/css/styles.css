@@ -1,7 +1,7 @@
 /* -- custom css for Bootstrap 3.x --*/
 
 /* move special fonts to HTML head for better performance */
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600');
 
 html,
 body {
