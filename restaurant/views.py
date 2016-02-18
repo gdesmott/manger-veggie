@@ -1,12 +1,14 @@
 import json
 from django.http import HttpResponse
 from django.conf import settings
+from django.views.decorators.cache import cache_page
 
 from .models import Restaurant
 
 # Vegetik review minimal length
 MIN_REVIEW_LEN = 10
 
+@cache_page(60 * 15)
 def restaurants_json(request):
     # Filter the restaurant to display on the map
     f = { 'lat__isnull': False,
