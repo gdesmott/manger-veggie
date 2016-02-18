@@ -157,6 +157,12 @@ ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=be.desmottes.ma
 PIWIK_SITE_ID = 0
 PIWIK_DOMAIN_PATH = "example.com"
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+
 try:
     from settings_local import *
 except ImportError:
