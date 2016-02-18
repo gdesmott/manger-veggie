@@ -31,5 +31,3 @@ def restaurants_json(request):
         "absolute_url": x.get_absolute_url(),
         "tags": [tag.name for tag in x.tags.all()],
     } for x in Restaurant.objects.filter(**f).prefetch_related("tags")], indent=4))
-
-    # optimisation note: .prefetch_related("tags") makes request slower here
