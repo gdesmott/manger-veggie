@@ -154,6 +154,9 @@ VEGO_RESTO = False
 APP_NAME = "Manger Veggie"
 ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=be.desmottes.mangerveggie"
 
+PIWIK_SITE_ID = 0
+PIWIK_DOMAIN_PATH = "example.com"
+
 try:
     from settings_local import *
 except ImportError:
