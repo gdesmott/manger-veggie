@@ -161,3 +161,13 @@ try:
     from settings_local import *
 except ImportError:
     pass
+
+if DEBUG == False:
+    TEMPLATES[0]["OPTIONS"]["loaders"] = [
+        ('django.template.loaders.cached.Loader', (
+            'hamlpy.template.loaders.HamlPyFilesystemLoader',
+            'hamlpy.template.loaders.HamlPyAppDirectoriesLoader',
+        )),
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
+    ]
