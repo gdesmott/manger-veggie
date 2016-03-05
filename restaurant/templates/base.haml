@@ -3,7 +3,8 @@
 -block bootstrap3_extra_head
 
   {% if VEGO_RESTO %}
-    %link{href: "/static/img/vegoresto-favicon.png", rel: "icon"}
+    %link{href: "/static/img/vegoresto-favicon.png", rel: "icon apple-touch-icon"}
+    %link{href: "/static/img/vegoresto-logo-192.png", rel: "icon apple-touch-icon", size: "192x192"}
   {% else %}
     %link{href: "/static/img/favicon.png", rel: "shortcut icon"}
   {% endif %}
