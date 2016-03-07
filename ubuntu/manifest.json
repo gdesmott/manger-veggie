@@ -1,0 +1,15 @@
+{
+    "name": "manger-veggie",
+    "description": "Webapp for manger-veggie.be",
+    "architecture": "all",
+    "title": "manger-veggie",
+    "hooks": {
+        "manger-veggie": {
+            "apparmor": "manger-veggie.apparmor",
+            "desktop": "manger-veggie.desktop"
+        }
+    },
+    "version": "1.0",
+    "maintainer": "Raphael Kleiren <raph.kleiren@gmail.com>",
+    "framework": "ubuntu-sdk-15.04"
+}
