@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=manger-veggie
+Comment=webapp for manger-veggie.be
+Type=Application
+Icon=manger-veggie.png
+Exec=webapp-container --fullscreen --store-session-cookies --webappUrlPatterns=https?://manger-veggie.be/* https://manger-veggie.be %u
+Terminal=false
+X-Ubuntu-Touch=true

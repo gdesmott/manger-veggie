@@ -1,0 +1,4 @@
+*.user
+.excludes
+.ubuntu-sdk-deploy
+*.click
