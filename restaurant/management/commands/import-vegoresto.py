@@ -82,6 +82,8 @@ class Command(BaseCommand):
                 if resto_data.vegoresto.text == '1':
                     resto.vegoresto = True
 
+                resto.tags.clear()
+
                 tags = parse_vg_tags(resto_data.categories_culinaires.text)
                 if resto_data.vegetik_veganfriendly.text == 'TRUE':
                     tags.add(VEGAN_FRIENDLY)
