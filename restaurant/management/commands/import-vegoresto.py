@@ -27,7 +27,11 @@ def parse_vg_tags(tags):
         try:
             result.add(VG_TAGS[t])
         except KeyError:
-            print "WARNING: Unknown tag %s" % t
+            if t not in ['monde','local','bio','cru','gastro','moderne',
+                         'tarte','tradi','crepe','brasserie','brunch',
+                         'bistro','pizza','tapas','bar_vin','bar_jus',
+                         'pub','bouchon','glacier']:
+                print "WARNING: Unknown tag %s" % t
 
     return result
 
