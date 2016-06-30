@@ -42,9 +42,6 @@ class Restaurant(models.Model):
 
     @classmethod
     def create(cls, vegoresto_id, name, address, website=None, phone=None, mail=None, contact=None, vg_contact=None):
-        if website is not None and not website.startswith('http'):
-            website = 'http://%s' % website
-
         restaurant = cls.objects.create(vegoresto_id=vegoresto_id, name=name, address=address, website=website,
                 phone=phone, mail=mail, contact=contact, vg_contact=vg_contact)
 
@@ -98,6 +95,11 @@ class Restaurant(models.Model):
             return VEGO_RESTO_URL % self.vegoresto_url
 
         return reverse('restaurant_detail', args=[str(self.id)])
+
+    def get_prefixed_website(self):
+        if self.website and not self.website.startswith('http'):
+            return 'http://%s' % self.website
+        return self.website
 
     def tags_for_js(self):
         return [x.name.encode("Utf-8") for x in self.tags.all()]
