@@ -44,9 +44,14 @@ def unescape(string):
 class Command(BaseCommand):
     args = ''
 
-    def handle(self, *args, **options):
+    def add_arguments(self, parser):
+        parser.add_argument('--source', nargs=1, type=str, help='Where to fetch data from, default: %s (file:// is a supported scheme)' % source_url)
 
-        s = urllib2.urlopen(source_url)
+    def handle(self, *args, **options):
+        if not options["source"]:
+            options["source"] = [source_url]
+
+        s = urllib2.urlopen(options["source"][0])
         xml_content = s.read()
         soup = BeautifulSoup(xml_content)
 
