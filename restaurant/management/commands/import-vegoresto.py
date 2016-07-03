@@ -27,7 +27,11 @@ def parse_vg_tags(tags):
         try:
             result.add(VG_TAGS[t])
         except KeyError:
-            print "WARNING: Unknown tag %s" % t
+            if t not in ['monde','local','bio','cru','gastro','moderne',
+                         'tarte','tradi','crepe','brasserie','brunch',
+                         'bistro','pizza','tapas','bar_vin','bar_jus',
+                         'pub','bouchon','glacier']:
+                print "WARNING: Unknown tag %s" % t
 
     return result
 
@@ -40,9 +44,14 @@ def unescape(string):
 class Command(BaseCommand):
     args = ''
 
-    def handle(self, *args, **options):
+    def add_arguments(self, parser):
+        parser.add_argument('--source', nargs=1, type=str, help='Where to fetch data from, default: %s (file:// is a supported scheme)' % source_url)
 
-        s = urllib2.urlopen(source_url)
+    def handle(self, *args, **options):
+        if not options["source"]:
+            options["source"] = [source_url]
+
+        s = urllib2.urlopen(options["source"][0])
         xml_content = s.read()
         soup = BeautifulSoup(xml_content)
 
