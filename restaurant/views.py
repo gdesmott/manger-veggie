@@ -25,7 +25,7 @@ def restaurants_json(request):
         "lon": x.lon,
         "name": x.name,
         "address": x.address,
-        "website": x.website,
+        "website": x.get_prefixed_website(),
         "phone": x.phone,
         "id": x.id,
         "national_phone_number": x.get_national_phone_number(),
