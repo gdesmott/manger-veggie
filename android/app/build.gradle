@@ -11,10 +11,26 @@ android {
         versionCode 2
         versionName "1.1"
     }
+    productFlavors {
+        vegoresto {
+            applicationId = "fr.vegoresto"
+            buildConfigField 'String', 'HOST', '"https://m.vegoresto.fr"'
+            buildConfigField 'String', 'LOCALCHECKSTRING', '"m.vegoresto.fr"'
+        }
+        mangerVeggie {
+            applicationId = "be.desmottes.mangerveggie"
+           buildConfigField 'String', 'HOST', '"http://manger-veggie.be"'
+            buildConfigField 'String', 'LOCALCHECKSTRING', '"manger-veggie.be"'
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix " DEBUG"
         }
     }
 }
