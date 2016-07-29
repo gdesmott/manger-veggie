@@ -36,7 +36,7 @@ public class MainActivity extends Activity implements ActivityCompat.OnRequestPe
 //    private String origin;
     final int GEOLOC_PERM_REQUEST_CODE = 123;
     //end of workaround
-
+    boolean hasGeolocPermission;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,37 +66,11 @@ public class MainActivity extends Activity implements ActivityCompat.OnRequestPe
         }
         webSettings.setUserAgentString(webSettings.getUserAgentString() + " " + getString(R.string.app_name));
 
+        initGeolocPermissions();
 
         webView.setWebChromeClient(new WebChromeClient() {
             public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
-                boolean hasGeolocPermission = PackageManager.PERMISSION_GRANTED ==
-                        ContextCompat.checkSelfPermission(MainActivity.this,
-                        Manifest.permission.ACCESS_FINE_LOCATION);
 
-                if (!hasGeolocPermission) {
-                    /*if (!ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
-                            Manifest.permission.ACCESS_FINE_LOCATION)) {
-                        showMessageOKCancel("Nous avons besoin de votre position",
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        ActivityCompat.requestPermissions(MainActivity.this,
-                                                new String[] {Manifest.permission.ACCESS_FINE_LOCATION},
-                                                GEOLOC_PERM_REQUEST_CODE);
-                                    }
-                                });
-                        return;
-                    } else*/
-                    ActivityCompat.requestPermissions(MainActivity.this,
-                            new String[] {Manifest.permission.ACCESS_FINE_LOCATION},
-                            GEOLOC_PERM_REQUEST_CODE);
-                    callback.invoke(origin, true, true);
-                    return;
-                }
-
-                hasGeolocPermission = PackageManager.PERMISSION_GRANTED ==
-                        ContextCompat.checkSelfPermission(MainActivity.this,
-                                Manifest.permission.ACCESS_FINE_LOCATION);
 
                 //MainActivity.this.origin = origin;
                 //geoPermCallback = callback;
@@ -108,15 +82,43 @@ public class MainActivity extends Activity implements ActivityCompat.OnRequestPe
                 Log.w("mangerveggie", msg.sourceId() + "[" + msg.lineNumber() + "] " + msg.message());
                 return true;
             }
-
-            public void onConsoleMessage(String message, int lineNumber, String sourceID) {
-                Log.w("MyApplication", message + " -- From line "
-                        + lineNumber + " of "
-                        + sourceID);
-            }
         });
         webView.setWebViewClient(new CustomWebViewClient());
-        webView.loadUrl(BuildConfig.HOST);
+        //webView.loadUrl(BuildConfig.HOST);
+    }
+
+    private void initGeolocPermissions() {
+        hasGeolocPermission = PackageManager.PERMISSION_GRANTED ==
+                ContextCompat.checkSelfPermission(MainActivity.this,
+                        Manifest.permission.ACCESS_FINE_LOCATION);
+
+        if (!hasGeolocPermission) {
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+                        /*showMessageOKCancel("Nous avons besoin de votre position",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        ActivityCompat.requestPermissions(MainActivity.this,
+                                                new String[] {Manifest.permission.ACCESS_FINE_LOCATION},
+                                                GEOLOC_PERM_REQUEST_CODE);
+                                    }
+                                });*/
+                ActivityCompat.requestPermissions(MainActivity.this,
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        GEOLOC_PERM_REQUEST_CODE);
+                return;
+            } else
+                ActivityCompat.requestPermissions(MainActivity.this,
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        GEOLOC_PERM_REQUEST_CODE);
+            return;
+        } else
+            webView.loadUrl(BuildConfig.HOST);
+
+        hasGeolocPermission = PackageManager.PERMISSION_GRANTED ==
+                ContextCompat.checkSelfPermission(MainActivity.this,
+                        Manifest.permission.ACCESS_FINE_LOCATION);
     }
 
     private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
@@ -178,13 +180,14 @@ public class MainActivity extends Activity implements ActivityCompat.OnRequestPe
 
         return super.onOptionsItemSelected(item);
     }
-/*    @Override
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case GEOLOC_PERM_REQUEST_CODE:
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if(geoPermCallback != null)
-                        geoPermCallback.invoke(origin, true, true);
+                    hasGeolocPermission = true;
+                    webView.loadUrl(BuildConfig.HOST);
                 } else {
                     // Permission Denied
                     Toast.makeText(MainActivity.this, "GEOLOC Permission Denied", Toast.LENGTH_SHORT)
@@ -194,5 +197,5 @@ public class MainActivity extends Activity implements ActivityCompat.OnRequestPe
             default:
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-    }*/
+    }
 }
