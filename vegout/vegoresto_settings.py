@@ -7,6 +7,7 @@ JSTEMPLATE_DIRS.append(os.path.join(BASE_DIR, 'vegoresto', 'templates'))
 
 VEGO_RESTO = True
 APP_NAME = "VegOresto"
+ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=fr.vegoresto"
 
 LEAFLET_CONFIG['DEFAULT_CENTER'] = (46.9, 2.791)
 LEAFLET_CONFIG['DEFAULT_ZOOM'] = 6
