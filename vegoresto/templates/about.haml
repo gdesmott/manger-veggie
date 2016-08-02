@@ -27,11 +27,30 @@
         <span style="font-family: Olivier">VegOresto</span> est une initiative de l'organisation de défense des animaux <a href="http://www.l214.com/">L214</a>.<br/>
         %a{href:"http://vegoresto.fr"} Rendez-vous sur vegoresto.fr pour en savoir plus.
 
-      %h3#ecran_accueil Comment ajouter <span style="font-family: Olivier">VegOresto</span> à l'écran d'accueil de votre mobile ?
+      %h3#mobile_shortcut Comment installer l'application <span style="font-family: Olivier">VegOresto</span> sur votre smartphone Android ?
+      %p
+        Il suffit de <a href="{{ ANDROID_APP_URL }}">l'installer via Play Store</a>
+        %a{href: '{{ ANDROID_APP_URL }}'}
+          %img.google-play-badge-about{src: '{{ STATIC_URL }}img/google-play-badge.png', alt: 'installer via Play Store'}
+
+      %h3#ecran_accueil Comment ajouter <span style="font-family: Olivier">VegOresto</span> à l'écran d'accueil de votre smartphone non-Android ?
       %p
         %ul
           %li
-            Android
+            %a{href:"http://www.apple.com/chfr/ios/add-to-home-screen/"} iPhone/iOS
+            %ul
+              %li Touchez le bouton Partager au bas de l'écran Safari
+              %li Touchez l'icône intitulée "Sur l'écran d'accueil"
+              %li Touchez le bouton "Ajouter" dans l'angle supérieur droit
+          %li
+            %a{href:"https://www.windowsphone.com/fr-be/how-to/wp7/start/pin-things-to-start"} Windows Phone
+            %ul
+              %li
+                Appuyez sur Autres
+                %img{src: "//cmsresources.windowsphone.com/windowsphone/fr-BE/How-to/wp7/inline/basic-icon-ellipses.png"}
+              %li Puis sur "Épingler sur l'écran d'accueil"
+          %li
+            Android (si vous ne pouvez/souhaitez pas utiliser l'application dédiée)
             %ul
               %a{href:"https://support.mozilla.org/fr/kb/ajouter-supprimer-et-afficher-des-pages-web-marqu%C3%A9es-firefox-android#w_ajouter-un-marque-page-aa-votre-aecran-daccueil"} Mozilla Firefox
               %ul
@@ -52,16 +71,8 @@
               %ul
                 %li Rajouter la page en tant que favori
                 %li Rajouter le favori à la page d'accueil
-          %li
-            %a{href:"http://www.apple.com/chfr/ios/add-to-home-screen/"} iPhone/iOS
-            %ul
-              %li Touchez le bouton Partager au bas de l'écran Safari
-              %li Touchez l'icône intitulée "Sur l'écran d'accueil"
-              %li Touchez le bouton "Ajouter" dans l'angle supérieur droit
-          %li
-            %a{href:"https://www.windowsphone.com/fr-be/how-to/wp7/start/pin-things-to-start"} Windows Phone
-            %ul
-              %li
-                Appuyez sur Autres
-                %img{src: "//cmsresources.windowsphone.com/windowsphone/fr-BE/How-to/wp7/inline/basic-icon-ellipses.png"}
-              %li Puis sur "Épingler sur l'écran d'accueil"
+
+      %h3#credits Crédits
+      %p
+        La version mobile de <span style="font-family: Olivier">VegOresto</span> est basée sur
+        %a{href:"https://manger-veggie.be/about/"} Manger Veggie
