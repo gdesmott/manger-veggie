@@ -9,7 +9,7 @@ from geopy.geocoders import ArcGIS, OpenMapQuest, GoogleV3, Nominatim, GeocoderD
 
 GEOCODERS = [Nominatim, GoogleV3, ArcGIS, OpenMapQuest, GeocoderDotUS]
 
-VEGO_RESTO_URL = "http://vegoresto.fr/resto/%s"
+VEGO_RESTO_URL = "https://vegoresto.fr/%s"
 
 class Restaurant(models.Model):
     vegoresto_id = models.BigIntegerField(unique=True)
