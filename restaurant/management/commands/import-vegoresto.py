@@ -8,7 +8,7 @@ from dateutil.parser import parse
 
 from django.db import transaction
 
-source_url = 'http://vegoresto.fr/restos-fichier-xml/'
+source_url = 'https://vegoresto.fr/restos-fichier-xml/'
 
 VEGAN_FRIENDLY = 'vegan-friendly'
 
