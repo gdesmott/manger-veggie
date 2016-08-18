@@ -9,11 +9,9 @@ from geopy.geocoders import ArcGIS, OpenMapQuest, GoogleV3, Nominatim, GeocoderD
 
 GEOCODERS = [Nominatim, GoogleV3, ArcGIS, OpenMapQuest, GeocoderDotUS]
 
-VEGO_RESTO_URL = "https://vegoresto.fr/%s"
-
 class Restaurant(models.Model):
     vegoresto_id = models.BigIntegerField(unique=True)
-    vegoresto_url = models.TextField(null=True)
+    vegoresto_url = models.URLField(null=True, blank=True)
     # True if the restaurant should appear on VegoResto
     vegoresto = models.BooleanField(default=False)
 
@@ -92,7 +90,7 @@ class Restaurant(models.Model):
 
     def get_absolute_url(self):
         if settings.VEGO_RESTO:
-            return VEGO_RESTO_URL % self.vegoresto_url
+            return self.vegoresto_url
 
         return reverse('restaurant_detail', args=[str(self.id)])
 
