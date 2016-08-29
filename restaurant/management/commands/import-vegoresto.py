@@ -87,7 +87,7 @@ class Command(BaseCommand):
                 resto.mail = resto_data.mel_public.text
                 resto.main_image = resto_data.image.text
                 resto.country_code = resto_data.pays.text.upper()
-                resto.vegoresto_url = resto_data.vego_url.text
+                resto.vegoresto_url = resto_data.vgo_url.text
                 if resto_data.vegoresto.text == '1':
                     resto.vegoresto = True
                 else:
