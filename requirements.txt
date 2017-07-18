@@ -18,3 +18,6 @@ python-dateutil==2.4.1
 pytz==2014.10
 six==1.9.0
 django-analytical
+gunicorn
+MySQL-python
+python-memcached
