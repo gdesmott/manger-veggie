@@ -28,6 +28,8 @@ function display_closest_restaurant () {
 
 function map_init (map, options) {
     global_map = map;
+    // markercluster
+    var markers_cluster = new L.MarkerClusterGroup({ disableClusteringAtZoom: 17 });
 
     if(global_layer != null && map.hasLayer(global_layer))
       global_map.removeLayer(global_layer);
@@ -67,8 +69,6 @@ function map_init (map, options) {
     var lc = L.control.locate({ 'setView': false }).addTo(map);
     lc.locate();
 
-    // markercluster
-    var markers_cluster = new L.MarkerClusterGroup({ disableClusteringAtZoom: 17 });
     global_layer = markers_cluster;
     map.addLayer(markers_cluster);
 }
