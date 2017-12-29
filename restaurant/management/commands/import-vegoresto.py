@@ -28,10 +28,11 @@ def parse_vg_tags(tags):
         try:
             result.add(VG_TAGS[t])
         except KeyError:
-            if t not in ['monde','local','bio','cru','gastro','moderne',
-                         'tarte','tradi','crepe','brasserie','brunch',
-                         'bistro','pizza','tapas','bar_vin','bar_jus',
-                         'pub','bouchon','glacier']:
+            # curl -s https://vegoresto.fr/wp-json/vg/v1/facets.json|zcat|jq ".facets.categories_culinaires.choices|keys" | tr -d "\n"
+            if t not in [ "bar_jus", "bar_vin", "bio", "bistro", "brasserie", "brunch",
+                          "chocolatier", "crepe", "cru", "gastro", "glacier", "local",
+                          "moderne", "monde", "pizza", "pub", "sans_gluten", "tapas",
+                          "tarte", "tarte_vrai", "tradi", "vege" ]:
                 print "WARNING: Unknown tag %s" % t
 
     return result
