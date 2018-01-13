@@ -5,6 +5,7 @@ from restaurant.models import Restaurant
 from BeautifulSoup import BeautifulSoup
 import urllib2
 from dateutil.parser import parse
+import zlib
 
 from django.db import transaction
 
@@ -54,7 +55,7 @@ class Command(BaseCommand):
             options["source"] = [source_url]
 
         s = urllib2.urlopen(options["source"][0])
-        xml_content = s.read()
+        xml_content = zlib.decompress(s.read(), 16 + zlib.MAX_WBITS)
         soup = BeautifulSoup(xml_content)
 
         with transaction.atomic():
