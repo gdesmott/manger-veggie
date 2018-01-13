@@ -8,7 +8,8 @@ from dateutil.parser import parse
 
 from django.db import transaction
 
-source_url = 'https://vegoresto.fr/restos-fichier-xml/'
+# Content-Encoding:gzip (always)
+source_url = 'https://vegoresto.fr/wp-json/vg/v1/restos.xml'
 
 VEGAN_FRIENDLY = 'vegan-friendly'
 
@@ -27,10 +28,11 @@ def parse_vg_tags(tags):
         try:
             result.add(VG_TAGS[t])
         except KeyError:
-            if t not in ['monde','local','bio','cru','gastro','moderne',
-                         'tarte','tradi','crepe','brasserie','brunch',
-                         'bistro','pizza','tapas','bar_vin','bar_jus',
-                         'pub','bouchon','glacier']:
+            # curl -s https://vegoresto.fr/wp-json/vg/v1/facets.json|zcat|jq ".facets.categories_culinaires.choices|keys" | tr -d "\n"
+            if t not in [ "bar_jus", "bar_vin", "bio", "bistro", "brasserie", "brunch",
+                          "chocolatier", "crepe", "cru", "gastro", "glacier", "local",
+                          "moderne", "monde", "pizza", "pub", "sans_gluten", "tapas",
+                          "tarte", "tarte_vrai", "tradi", "vege" ]:
                 print "WARNING: Unknown tag %s" % t
 
     return result
@@ -96,7 +98,7 @@ class Command(BaseCommand):
                 resto.tags.clear()
 
                 tags = parse_vg_tags(resto_data.categories_culinaires.text)
-                if resto_data.vegetik_veganfriendly.text == 'TRUE':
+                if resto_data.vegetik_veganfriendly.text == '1':
                     tags.add(VEGAN_FRIENDLY)
                 elif VEGAN_FRIENDLY in tags:
                     tags.remove(VEGAN_FRIENDLY)
